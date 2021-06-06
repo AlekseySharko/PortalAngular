@@ -4,6 +4,13 @@ a {
 a:hover {
  color: #C2B4D6;
 }
+.btn-sign-up {
+  border-style: solid;
+  border-color: #edf0f1;
+}
+.btn-sign-up:hover {
+  border-color: #C2B4D6;
+}
 li, a, button {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
