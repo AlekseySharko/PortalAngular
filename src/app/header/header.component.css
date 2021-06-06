@@ -58,7 +58,6 @@ li, a, button {
     left: 0px;
     top: 60px;
     --header-nav-list: translateX(-100%);
-    transition: transform 0.2s ease;
     background-image: linear-gradient(to right ,#433E49,#433E49 50%,#333D51);
   }
   .header-nav-list-toggle {
