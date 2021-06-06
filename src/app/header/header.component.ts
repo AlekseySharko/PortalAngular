@@ -11,5 +11,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onBurgerClick() {
+    let navList = document.querySelector('.header-nav-list');
+    navList?.classList.toggle('header-nav-list-toggle');
+  }
 }
