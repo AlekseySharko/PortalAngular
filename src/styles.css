@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   --min-page-width: 460px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .bg-gradient-gray {
