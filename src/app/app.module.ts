@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { WeatherComponent } from './header/weather/weather.component';
+import { NavListToggleDirective } from './directives/nav-list-toggle.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { WeatherComponent } from './header/weather/weather.component';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    WeatherComponent
+    WeatherComponent,
+    NavListToggleDirective
   ],
   imports: [
     BrowserModule
