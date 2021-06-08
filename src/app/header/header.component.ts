@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  toggleValue:boolean = true;
   constructor() { }
 
   ngOnInit(): void {
-  }
-  onBurgerClick(navList:HTMLElement) {
-    navList?.classList.toggle('header-nav-list-toggle');
+    this.toggleValue = false;
   }
 }

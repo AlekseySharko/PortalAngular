@@ -1,12 +1,12 @@
 <div class="header-container px-3 bg-peddle-gradient-1">
   <div class="d-flex px-1">
       <a class="px-2 header-logo" href="#"><img src="https://localhost:44350/img/home-icon2.png"></a>
-    <div class="header-burger" (click)="onBurgerClick(navList)">
+    <div class="header-burger" (click)="toggleValue=!toggleValue">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <div class="header-nav-list" #navList>
+    <div class="header-nav-list" [classToggle]="toggleValue" [toggleClass]="'header-nav-list-toggle'">
       <a class="btn" href="#">Catalog</a>
       <a class="btn" href="#">Forum</a>
       <a class="btn" href="#">Entertainment</a>
