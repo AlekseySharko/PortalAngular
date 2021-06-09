@@ -8,7 +8,9 @@ import { MainComponent } from './main/main.component';
 import { WeatherComponent } from './header/weather/weather.component';
 import { NavListToggleDirective } from './directives/nav-list-toggle.directive';
 import { SvgImageComponent } from './header/svg-image/svg-image.component';
-import { LinkContainerComponent } from './header/link-container/link-container.component';
+import { RightColumnComponent } from './header/right-column/right-column.component';
+import { UserBarComponent } from './header/right-column/user-bar/user-bar.component';
+import { UnknownUserBarComponent } from './header/right-column/user-bar/unknown-user-bar/unknown-user-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LinkContainerComponent } from './header/link-container/link-container.c
     WeatherComponent,
     NavListToggleDirective,
     SvgImageComponent,
-    LinkContainerComponent
+    RightColumnComponent,
+    UserBarComponent,
+    UnknownUserBarComponent
   ],
   imports: [
     BrowserModule

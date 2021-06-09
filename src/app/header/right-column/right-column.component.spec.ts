@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinkContainerComponent } from './link-container.component';
+import { RightColumnComponent } from './right-column.component';
 
-describe('LinkContainerComponent', () => {
-  let component: LinkContainerComponent;
-  let fixture: ComponentFixture<LinkContainerComponent>;
+describe('RightColumnComponent', () => {
+  let component: RightColumnComponent;
+  let fixture: ComponentFixture<RightColumnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LinkContainerComponent ]
+      declarations: [ RightColumnComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LinkContainerComponent);
+    fixture = TestBed.createComponent(RightColumnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,17 +6,13 @@
       <div></div>
       <div></div>
     </div>
-    <app-link-container class="header-nav-list" [classToggle]="toggleValue" [toggleClass]="'header-nav-list-toggle'">
+    <div class="header-nav-list" [classToggle]="toggleValue" [toggleClass]="'header-nav-list-toggle'">
       <a class="btn" href="#">Catalog</a>
       <a class="btn" href="#">News</a>
       <a class="btn" href="#">Forum</a>
       <a class="btn" href="#">Entertainment</a>
-    </app-link-container>
+    </div>
   </div>
-  <div class="d-flex">
-    <a class="btn btn-log-in" href="#">Log in</a>
-    <a class="btn btn-sign-up" href="#">Sign up</a>
-  </div>
-
+  <app-right-column></app-right-column>
 </div>
 

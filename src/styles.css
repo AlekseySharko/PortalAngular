@@ -5,33 +5,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --min-page-width: 460px;
+  --min-page-width: 500px;
 }
 
 body {
   min-height: 760px;
+  min-width: var(--min-page-width);
 }
 
 .bg-gradient-gray {
   background-image: linear-gradient(to bottom,#fff,#fff 50%,#e3e3e3);
   background-repeat: repeat-x;
   background-size: 100%;
-}
-
-.bg-compote-1 {
-  background-color: #934A5F;
-}
-.bg-compote-2 {
-  background-color: #57648C;
-}
-.bg-compote-3 {
-  background-color: #C2B4D6;
-}
-.bg-compote-4 {
-  background-color: #E5E5E5;
-}
-.bg-pebble-1 {
-  background-color: #433E49;
 }
 .bg-peddle-gradient-1 {
   background-image: linear-gradient(to right ,#433E49,#433E49 50%,#333D51);
