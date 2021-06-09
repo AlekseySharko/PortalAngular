@@ -28,7 +28,7 @@ li, a, button {
   align-items: center;
   min-width: var(--min-page-width);
   padding: 10px 10%;
-  height: 60px;
+  height: 65px;
   align-content: center;
 }
 .header-burger > div{
@@ -50,7 +50,7 @@ li, a, button {
   --header-nav-list: translateX(0%);
 }
 
-@media all and (max-width: 809px) {
+@media all and (max-width: 875px) {
   .header-burger {
     display: initial;
     cursor: pointer;
@@ -62,7 +62,7 @@ li, a, button {
     width: 100%;
     min-width: var(--min-page-width);
     left: 0px;
-    top: 60px;
+    top: 65px;
     --header-nav-list: translateX(-100%);
     background-image: linear-gradient(to right ,#433E49,#433E49 50%,#333D51);
   }

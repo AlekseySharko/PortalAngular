@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { WeatherComponent } from './header/weather/weather.component';
 import { NavListToggleDirective } from './directives/nav-list-toggle.directive';
 import { SvgImageComponent } from './header/svg-image/svg-image.component';
+import { LinkContainerComponent } from './header/link-container/link-container.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SvgImageComponent } from './header/svg-image/svg-image.component';
     MainComponent,
     WeatherComponent,
     NavListToggleDirective,
-    SvgImageComponent
+    SvgImageComponent,
+    LinkContainerComponent
   ],
   imports: [
     BrowserModule

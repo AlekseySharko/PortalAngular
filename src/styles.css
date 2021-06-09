@@ -8,6 +8,10 @@
   --min-page-width: 460px;
 }
 
+body {
+  min-height: 760px;
+}
+
 .bg-gradient-gray {
   background-image: linear-gradient(to bottom,#fff,#fff 50%,#e3e3e3);
   background-repeat: repeat-x;
