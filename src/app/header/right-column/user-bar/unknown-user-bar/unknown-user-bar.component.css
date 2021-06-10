@@ -5,3 +5,6 @@
   border-style: solid;
   border-color: #edf0f1;
 }
+.btn-log-in:focus{
+  box-shadow: none;
+}
