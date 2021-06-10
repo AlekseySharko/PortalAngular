@@ -9,7 +9,8 @@ export class HeaderComponent implements OnInit {
   toggleValue:boolean = true;
   constructor() { }
 
-  ngOnInit(): void {
-    this.toggleValue = false;
+  toggleDropdown() {
+    this.toggleValue=!this.toggleValue;
   }
+  ngOnInit(): void { }
 }
