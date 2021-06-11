@@ -1,5 +1,9 @@
 .header-container {
-  --burger-color: #edf0f1;
+  --text-color: #EDF0F1;
+  --burger-color: var(--text-color);
+  --bg-color:  #131313;
+  --hover-color: #A0D3F9;
+  background-color: var(--bg-color);
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.0625rem;
@@ -11,11 +15,11 @@
 }
 li, a, button {
   text-decoration: none;
-  color: #edf0f1;
+  color: var(--text-color);
   transition: all 0.3s ease 0ms;
 }
 a:hover {
-  color: #C2B4D6;
+  color: var(--hover-color);
 }
 .header-burger > div{
   width: 1.5625rem;
@@ -24,7 +28,7 @@ a:hover {
   margin: 0.3125rem 0rem;
 }
 .header-burger:hover {
-  --burger-color: #C2B4D6;
+  --burger-color: var(--hover-color);
   cursor: pointer;
 }
 .right-header {
@@ -59,7 +63,7 @@ a:hover {
   font-size: 1.25rem;
 }
 .header-nav-list {
-  background-image: linear-gradient(to right ,#433E49,#433E49 50%,#333D51);
+  background-color: var(--bg-color);
   position: absolute;
   display: flex;
   flex-direction: column;
