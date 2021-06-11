@@ -16,10 +16,23 @@
 li, a, button {
   text-decoration: none;
   color: var(--text-color);
-  transition: all 0.3s ease 0ms;
+  transition: all 0.3s ease;
 }
-a:hover {
-  color: var(--hover-color);
+.regular-link {
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, white, white 40% ,#91EAE4 60%, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, white, white 40% ,#91EAE4 60%, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 500%;
+  background-position: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -mo-text-fill-color: transparent;
+  font-weight: 600;
+  -mo-text-fill-color: transparent;
+  transition: background-position 0.5s ease;
+}
+.regular-link:hover {
+  background-position: right;
 }
 .header-burger > div{
   width: 1.5625rem;
