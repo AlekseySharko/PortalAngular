@@ -17,13 +17,16 @@ import { HomeComponent } from './main/home/home.component';
 import { CatalogHomeComponent } from './main/catalog/catalog-home/catalog-home.component';
 import { CatalogProductsComponent } from './main/catalog/catalog-products/catalog-products.component';
 import { CatalogHeaderComponent } from './main/catalog/catalog-home/catalog-header/catalog-header.component';
+import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
 const catalogRoutes: Routes = [
   { path:'', component:CatalogHomeComponent },
   { path:':category', component:CatalogProductsComponent },
 ];
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent, children: catalogRoutes },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -42,7 +45,8 @@ const appRoutes: Routes = [
     HomeComponent,
     CatalogHomeComponent,
     CatalogProductsComponent,
-    CatalogHeaderComponent
+    CatalogHeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

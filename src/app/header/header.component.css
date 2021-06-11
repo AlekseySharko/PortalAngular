@@ -16,6 +16,9 @@ li, a, button {
   color: var(--text-color);
   transition: all 0.3s ease;
 }
+a:focus {
+  box-shadow: none;
+}
 .regular-link {
   background: #7F7FD5;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, white, white 40% ,#91EAE4 60%, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
