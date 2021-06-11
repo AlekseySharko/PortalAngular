@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
 
 * {
+  --hover-color: #A0D3F9;
+  --min-page-width: 460px;
+  --min-page-width: 20rem;
+  --text-color: #EDF0F1;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --min-page-width: 460px;
   font-family: 'Poppins', sans-serif;
-  --min-page-width: 20rem;
 }
 
 body {
