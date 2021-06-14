@@ -91,7 +91,6 @@ a:focus {
 .header-nav-list-toggle {
   --header-nav-list: translateX(0%);
 }
-
 @media(min-width: 54.6875rem) {
   .header-burger {
     display: none;

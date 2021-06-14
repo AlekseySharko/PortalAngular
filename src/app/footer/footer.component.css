@@ -58,7 +58,6 @@
 }
 .social-media-text {
   font-size: 1.1rem;
-  margin: auto;
   text-align: center;
   margin: auto;
 }
@@ -79,8 +78,9 @@
 @media(max-width: 22rem) {
   .links {
     font-size: 90%;
+    justify-content: center;
   }
   .item-header {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   color:#eee;
-  font-size:26px;
+  font-size:1.625rem;
   width:100%;
   min-height:70vh;
   margin: 0;
@@ -17,7 +17,7 @@
 }
 .text-3d {
   text-transform: uppercase;
-  font-size: 130px;
+  font-size: 8.125rem;
   color:#eee;
   text-decoration:none;
   text-shadow:
@@ -57,4 +57,12 @@
 
   transform: translate(-4%,-4%);
   transition: all 0.3s ease-in-out;
+}
+@media(max-width: 21.25rem) {
+  .text-3d {
+    font-size: 7.1875rem;
+  }
+  .not-found-body {
+    font-size: 1.4375rem;
+  }
 }

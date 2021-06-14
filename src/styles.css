@@ -3,7 +3,6 @@
 
 * {
   --hover-color: #A0D3F9;
-  --min-page-width: 460px;
   --min-page-width: 20rem;
   --text-color: #EDF0F1;
   box-sizing: border-box;

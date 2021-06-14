@@ -1,0 +1,15 @@
+.catalog-container {
+  background: #fff;  /* fallback for old browsers */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.catalog-content {
+  min-height: 54rem;
+  width: 88%;
+}
+@media(max-width: 54.6875rem) {
+  .catalog-content {
+    width: 100%;
+  }
+}
