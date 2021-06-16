@@ -1,0 +1,27 @@
+.subcategory-container {
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  border-top: 2px solid #ccc;
+}
+.product-categories {
+  border-left: 1px solid #ccc;
+}
+.subs {
+  padding: 0.625rem 0rem;
+}
+.current-category {
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 0rem 1.25rem;
+}
+.subcategory {
+  cursor: pointer;
+  padding: 0.2rem 1.25rem;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.subcategory:hover {
+  background-color: #EFEFEF;
+}

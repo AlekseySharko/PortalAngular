@@ -18,6 +18,7 @@ import { CatalogHomeComponent } from './main/catalog/catalog-home/catalog-home.c
 import { CatalogProductsComponent } from './main/catalog/catalog-products/catalog-products.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import {CatalogHeaderComponent} from "./main/catalog/catalog-header/catalog-header.component";
+import { CatalogSubcategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/catalog-subcategories.component';
 
 const catalogRoutes: Routes = [
   { path:'', component:CatalogHomeComponent },
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     CatalogHomeComponent,
     CatalogProductsComponent,
     CatalogHeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CatalogSubcategoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,6 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }
-
-.bg-gradient-gray {
-  background-image: linear-gradient(to bottom,#fff,#fff 50%,#e3e3e3);
-  background-repeat: repeat-x;
-  background-size: 100%;
-}
 .bg-peddle-gradient-1 {
   background-image: linear-gradient(to right ,#131313,#131313);
 }
