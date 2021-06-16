@@ -24,6 +24,7 @@
   padding-bottom: 0.25rem;
   transition: all 0.1s ease;
 }
+
 .category-name {
   padding-top: 0.3rem;
   font-size: 0.8rem;
@@ -43,6 +44,7 @@ svg {
   max-width: 2.5rem;
   max-height: 2.5rem;
 }
+
 @media(max-width: 54.625rem) {
   .catalog-header-categories {
     flex-direction: column;

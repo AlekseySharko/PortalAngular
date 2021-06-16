@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 30fr 70fr;
   border-top: 2px solid #ccc;
+  min-height: 30rem;
 }
 .product-categories {
   border-left: 1px solid #ccc;
