@@ -17,7 +17,7 @@ const entertainmentRoutes: Routes = [
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent, children: catalogRoutes },
-  { path: 'entertainment', component: EntertainmentComponent, children: entertainmentRoutes },
+  { path: 'entertainment', component: EntertainmentComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

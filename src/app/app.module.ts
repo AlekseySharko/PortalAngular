@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {ApiOriginService} from "./services/api-origin.service";
 import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/product-categories/product-categories.component';
 import {RandomProductPictureProviderService} from "./main/catalog/catalog-header/services/random-product-picture-provider.service";
+import { TestOneComponent } from './main/entertainment/test-one/test-one.component';
+import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-two.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {RandomProductPictureProviderService} from "./main/catalog/catalog-header
     CatalogSubcategoriesComponent,
     EntertainmentComponent,
     MainCategoryComponent,
-    ProductCategoriesComponent
+    ProductCategoriesComponent,
+    TestOneComponent,
+    TestTwoComponent
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@
   transition: background-position 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 .product-category-image {
+  width: 100%;
   display: flex;
   justify-content: center;
   justify-items: center;
