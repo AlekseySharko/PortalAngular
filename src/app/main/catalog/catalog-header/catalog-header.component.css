@@ -11,18 +11,19 @@
   padding: 0.3125rem;
   border: 1px solid #131313;
   border-left: initial;
-  transition: all 0.3s ease;
+  background-image: linear-gradient(to bottom, #FFF, #FFF 50%, #EFEFEF);
+  background-size: 200px 200px;
+  transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 .catalog-header-category:last-child {
   border-right: initial;
 }
 .catalog-header-category:hover {
-  background-color: initial;
-  background-image: linear-gradient(to bottom, #FFF, #EFEFEF);
+  background-position: bottom;
   cursor: pointer;
   border-bottom: 2px solid;
   padding-bottom: 0.25rem;
-  transition: all 0.1s ease;
+  transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 
 .category-name {
