@@ -27,6 +27,13 @@
   transition: background-position 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 .product-category-image {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  max-width: var(--product-category-image-size);
+  max-height: var(--product-category-image-size);
+}
+img {
   max-width: var(--product-category-image-size);
   max-height: var(--product-category-image-size);
 }

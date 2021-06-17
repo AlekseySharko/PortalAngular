@@ -1,6 +1,8 @@
 <div class="product-category-container">
   <div *ngFor="let productCategory of selectedCategories" class="product-category">
-    <img class="product-category-image" [src]="productPictureProvider.getUrl()">
+    <div class="product-category-image">
+      <img [src]="productPictureProvider.getUrl()">
+    </div>
     <div class="product-category-text">{{productCategory.name}}</div>
   </div>
 </div>
