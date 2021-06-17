@@ -51,5 +51,6 @@ svg {
   }
   .catalog-header-category {
     border-top: none;
+    border-right: none;
   }
 }

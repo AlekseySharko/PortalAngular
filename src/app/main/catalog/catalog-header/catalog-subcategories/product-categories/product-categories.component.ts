@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductCategory} from "../../catalog-categories-classes/product-category";
+import {RandomProductPictureProviderService} from "../../services/random-product-picture-provider.service";
 
 @Component({
   selector: 'app-product-categories',
@@ -8,7 +9,10 @@ import {ProductCategory} from "../../catalog-categories-classes/product-category
 })
 export class ProductCategoriesComponent implements OnInit {
   @Input() selectedCategories: ProductCategory[] = [];
-  constructor() { }
+  productPictureProvider;
+  constructor(productPictureProvider: RandomProductPictureProviderService) {
+    this.productPictureProvider = productPictureProvider;
+  }
 
   ngOnInit(): void {
   }

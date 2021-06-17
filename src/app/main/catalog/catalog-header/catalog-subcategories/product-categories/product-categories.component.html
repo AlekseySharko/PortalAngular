@@ -1,6 +1,6 @@
 <div class="product-category-container">
   <div *ngFor="let productCategory of selectedCategories" class="product-category">
-    <img class="product-category-image" src="https://content2.onliner.by/catalog/device/header/4904e24d7e36e19818c954179881d5dc.jpeg">
+    <img class="product-category-image" [src]="productPictureProvider.getUrl()">
     <div class="product-category-text">{{productCategory.name}}</div>
   </div>
 </div>

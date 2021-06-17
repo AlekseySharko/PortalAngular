@@ -24,6 +24,7 @@ import { MainCategoryComponent } from './main/catalog/catalog-header/main-catego
 import { HttpClientModule } from '@angular/common/http';
 import {ApiOriginService} from "./services/api-origin.service";
 import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/product-categories/product-categories.component';
+import {RandomProductPictureProviderService} from "./main/catalog/catalog-header/services/random-product-picture-provider.service";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalo
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [ApiOriginService],
+  providers: [ApiOriginService, RandomProductPictureProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
