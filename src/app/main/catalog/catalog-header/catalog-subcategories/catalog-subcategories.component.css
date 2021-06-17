@@ -1,7 +1,6 @@
 .subcategory-container {
   display: grid;
-  grid-template-columns: 30fr 70fr;
-  border-top: 2px solid #ccc;
+  grid-template-columns: 300fr 701fr;
   min-height: 30rem;
 }
 .product-categories {
@@ -17,7 +16,8 @@
 }
 .subcategory {
   cursor: pointer;
-  padding: 0.2rem 1.25rem;
+  padding: 0.2rem 4%;
+  font-size: 1rem;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
