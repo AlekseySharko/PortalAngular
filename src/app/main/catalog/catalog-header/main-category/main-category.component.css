@@ -5,15 +5,14 @@
   text-align: center;
   min-height: 2rem;
   height: 100%;
+}
+.category-name, .category-image {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 }
-.category-image {
-  padding-top: 0.3125rem;
-}
 img {
-  max-width: 2.5rem;
-  max-height: 2.5rem;
+  max-width: 2.7rem;
+  max-height: 2.7rem;
 }

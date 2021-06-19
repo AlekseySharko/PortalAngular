@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(150deg, #FFF, #FFF 55%, #EFEFEF);
+  background-image: linear-gradient(150deg, #FFF, #FFF 55%, #dfdfdf);
   background-size: 200%;
   background-position: left;
   padding: var(--product-category-padding);

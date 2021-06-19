@@ -1,12 +1,16 @@
 .subcategory-container {
   display: grid;
   grid-template-columns: 270fr 730fr;
-  min-height: 30rem;
+  min-height: 40rem;
+  border-bottom: 1px solid #131313;
 }
 .product-categories {
   border-left: 1px solid #ccc;
+  background-color: rgba(224, 224, 224, 0.3);
 }
 .subs {
+  background-color: #131313;
+  color: #EFEFEF;
   padding: 0.625rem 0rem;
 }
 .current-category {
@@ -25,6 +29,6 @@
   transition: background-color 0.3s ease;
 }
 .subcategory:hover {
-  background-color: #EFEFEF;
+  background-color: rgba(255,255,255, 0.2);
   transition: background-color 0.3s ease;
 }

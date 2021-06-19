@@ -1,7 +1,12 @@
 .catalog-header-categories {
   display: flex;
   justify-content: stretch;
+  color: #EFEFEF;
+  background: #b92b27;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 .catalog-header-category {
   width: 100%;
   display: flex;
@@ -11,8 +16,7 @@
   padding: 0.3125rem;
   border: 1px solid #131313;
   border-left: initial;
-  background-image: linear-gradient(to bottom, #FFF, #FFF 50%, #EFEFEF);
-  background-size: 200px 200px;
+  border-bottom-color: transparent;
   transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 .catalog-header-category:last-child {
@@ -20,9 +24,10 @@
 }
 .catalog-header-category:hover {
   background-position: bottom;
+  background-color:rgba(0,0,70,0.3);
   cursor: pointer;
-  border-bottom: 2px solid;
-  padding-bottom: 0.25rem;
+  border-top: 2px solid #EFEFEF;
+  padding-top: 0.25rem;
   transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
 
@@ -53,5 +58,9 @@ svg {
   .catalog-header-category {
     border-top: none;
     border-right: none;
+  }
+  .catalog-header-category:hover {
+    border-top: none;
+    padding-top: 0.3125rem;
   }
 }
