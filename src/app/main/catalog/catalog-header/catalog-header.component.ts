@@ -4,6 +4,7 @@ import {CatalogMainCategory} from "../catalog-classes/catalog-header/catalog-mai
 import {CatalogSubCategory} from "../catalog-classes/catalog-header/catalog-subcategory";
 import {SubCategoryStandardProviderService} from "./services/sub-category-standard-provider.service";
 import {Observable, Subscription} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-catalog-header',
@@ -16,12 +17,12 @@ export class CatalogHeaderComponent implements OnInit, OnDestroy {
   selectedSubcategories: CatalogSubCategory[] = [];
   categoriesSubscription: Subscription = new Subscription();
 
-  constructor(private mainCategoryProvider: MainCategoryStandardProviderService,
+  constructor(private route: ActivatedRoute,
               private subCategoryStandardProviderService: SubCategoryStandardProviderService) { }
 
   ngOnInit(): void {
-    this.categoriesSubscription = this.mainCategoryProvider.getAllCategories().subscribe((c: CatalogMainCategory[]) => {
-      this.mainCategories = c;
+    this.categoriesSubscription = this.route.data.subscribe(data => {
+      this.mainCategories = data['mainCategories'];
       this.onMainCategorySelect(this.mainCategories[0]?.catalogMainCategoryId);
     });
   }

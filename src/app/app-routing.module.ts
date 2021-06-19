@@ -6,10 +6,11 @@ import {CatalogComponent} from "./main/catalog/catalog.component";
 import {EntertainmentComponent} from "./main/entertainment/entertainment.component";
 import {PageNotFoundComponent} from "./main/page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
+import {MainCategoriesResolverService} from "./main/catalog/services/main-categories-resolver.service";
 
 const catalogRoutes: Routes = [
-  { path:'', component:CatalogHomeComponent },
-  { path:':category', component:CatalogProductsComponent },
+  { path:'', component:CatalogHomeComponent, resolve: { mainCategories: MainCategoriesResolverService } },
+  { path:':category', component:CatalogProductsComponent, resolve: { mainCategories: MainCategoriesResolverService } },
 ];
 const entertainmentRoutes: Routes = [
 
