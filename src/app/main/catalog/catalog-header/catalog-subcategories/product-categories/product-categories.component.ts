@@ -9,12 +9,16 @@ import {RandomProductPictureProviderService} from "../../services/random-product
 })
 export class ProductCategoriesComponent implements OnInit {
   @Input() selectedCategories: ProductCategory[] = [];
-  productPictureProvider;
-  constructor(productPictureProvider: RandomProductPictureProviderService) {
-    this.productPictureProvider = productPictureProvider;
+  productCategoryPictures: string[] = [];
+  constructor(private productPictureProvider: RandomProductPictureProviderService) {
   }
 
   ngOnInit(): void {
+    for (let i = 0; i < 20; i++) {
+      this.productCategoryPictures.push(this.productPictureProvider.getUrl())
+    }
   }
-
+  onClick() {
+    alert(this.selectedCategories.length);
+  }
 }

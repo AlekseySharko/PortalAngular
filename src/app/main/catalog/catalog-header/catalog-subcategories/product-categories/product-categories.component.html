@@ -1,7 +1,7 @@
 <div class="product-category-container">
-  <div *ngFor="let productCategory of selectedCategories" class="product-category">
+  <div *ngFor="let productCategory of selectedCategories, index as i" class="product-category" (click)="onClick()">
     <div class="product-category-image">
-      <img [src]="productPictureProvider.getUrl()">
+      <img [src]="productCategoryPictures[i]">
     </div>
     <div class="product-category-text">{{productCategory.name}}</div>
   </div>
