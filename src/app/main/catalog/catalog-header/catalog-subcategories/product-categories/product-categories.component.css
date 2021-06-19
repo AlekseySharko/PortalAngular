@@ -39,7 +39,7 @@ img {
   max-height: var(--product-category-image-size);
 }
 .product-category-text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   width: 100%;
   text-align: center;
   margin: auto;
