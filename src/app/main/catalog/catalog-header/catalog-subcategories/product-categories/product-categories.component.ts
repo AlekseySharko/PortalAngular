@@ -18,7 +18,4 @@ export class ProductCategoriesComponent implements OnInit {
       this.productCategoryPictures.push(this.productPictureProvider.getUrl())
     }
   }
-  onClick() {
-    alert(this.selectedCategories.length);
-  }
 }
