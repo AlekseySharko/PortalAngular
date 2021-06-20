@@ -24,9 +24,13 @@ import { MainCategoryComponent } from './main/catalog/catalog-header/main-catego
 import { HttpClientModule } from '@angular/common/http';
 import {ApiOriginService} from "./services/api-origin.service";
 import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/product-categories/product-categories.component';
-import {RandomProductPictureProviderService} from "./main/catalog/catalog-header/services/random-product-picture-provider.service";
+import {RandomProductPictureProviderService} from "./main/catalog/services/random-product-picture-provider.service";
 import { TestOneComponent } from './main/entertainment/test-one/test-one.component';
 import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-two.component';
+import { AddProductComponent } from './main/catalog/catalog-products/moderating/products/add-product/add-product.component';
+import { ProductTemplateComponent } from './main/catalog/catalog-products/moderating/products/product-template/product-template.component';
+import { ImageGalleryComponent } from './main/catalog/catalog-products/moderating/products/product-template/image-gallery/image-gallery.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -51,13 +55,17 @@ import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-tw
     MainCategoryComponent,
     ProductCategoriesComponent,
     TestOneComponent,
-    TestTwoComponent
+    TestTwoComponent,
+    AddProductComponent,
+    ProductTemplateComponent,
+    ImageGalleryComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+    ],
   providers: [ApiOriginService, RandomProductPictureProviderService],
   bootstrap: [AppComponent]
 })

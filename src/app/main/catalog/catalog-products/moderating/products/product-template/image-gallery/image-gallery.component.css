@@ -1,0 +1,97 @@
+.gallery-header {
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-color: white;
+}
+.image-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  overflow-x: auto;
+}
+.image-list > .gallery__item:first-child {
+  margin-left: auto;
+}
+.image-list > .gallery__item:last-child {
+  margin-right: auto;
+}
+.big-image > img {
+  width: auto;
+  height: 25rem;
+}
+.big-image {
+  display: flex;
+  justify-content: center;
+}
+.gallery__thumb {
+  padding-top: 6px;
+  margin: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery__thumb {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.gallery__thumb > img {
+  width: auto;
+  height: 8rem;
+}
+.gallery__selector {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.gallery__selector:checked ~ .gallery__thumb {
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px #0be2f6;
+}
+.header-btn:not(:first-child) {
+  margin-left: 0.3rem
+}
+.header-btn-delete {
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+@media(max-width: 56.1875rem) {
+  .header-btn:not(:first-child) {
+    margin-left: 0.2rem
+  }
+  .header-btn {
+    padding: .375rem .5rem;
+  }
+}
+@media(max-width: 34.375rem) {
+  .gallery-header {
+    flex-direction: column;
+  }
+  .header-text {
+    padding-bottom: 0.1rem;
+  }
+  .big-image > img {
+    height: 15rem;
+  }
+  .gallery__thumb > img {
+    width: auto;
+    height: 5rem;
+  }
+}

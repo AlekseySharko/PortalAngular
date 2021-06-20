@@ -10,7 +10,11 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 body {
   min-width: var(--min-page-width);
   font-family: 'Poppins', sans-serif;
@@ -18,4 +22,28 @@ body {
 }
 .bg-peddle-gradient-1 {
   background-image: linear-gradient(to right ,#131313,#131313);
+}
+img {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.my-btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid white;
+  padding: .375rem .625rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

@@ -1,0 +1,25 @@
+<div class="gallery-header">
+  <span class="header-text">PRODUCT IMAGES</span>
+  <div class="image-control-buttons">
+    <button class="my-btn btn-dark header-btn header-btn-add">Add image</button>
+    <button class="my-btn btn-dark header-btn">Edit</button>
+    <button class="my-btn header-btn header-btn-delete">Delete</button>
+  </div>
+</div>
+<div class="gallery">
+  <div class="big-image">
+    <img src="{{selectedImage}}">
+  </div>
+  <div class="image-list" [ngClass]="{'image-list-few-elements': images.length <= 4}">
+    <div class="gallery__item"  *ngFor="let image of images; index as i">
+      <input
+        type="radio"
+        class="gallery__selector"
+        id="{{'img-' + i}}"
+        name="gallery"
+        [(ngModel)]="selectedImage"
+        [value]="image"/>
+      <label for="{{'img-' + i}}"  class="gallery__thumb"><img [src]="image" alt=""/></label>
+    </div>
+  </div>
+</div>

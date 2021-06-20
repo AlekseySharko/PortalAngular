@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {MainCategoryProvider} from "../../catalog-classes/catalog-header/main-category-provider";
-import {CatalogMainCategory} from "../../catalog-classes/catalog-header/catalog-main-category";
+import {MainCategoryProvider} from "../catalog-classes/catalog-header/main-category-provider";
+import {CatalogMainCategory} from "../catalog-classes/catalog-header/catalog-main-category";
 import {HttpClient} from "@angular/common/http";
-import {ApiOriginService} from "../../../../services/api-origin.service";
+import {ApiOriginService} from "../../../services/api-origin.service";
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CatalogSubCategory} from "../../catalog-classes/catalog-header/catalog-subcategory";
 import {ProductCategory} from "../../catalog-classes/catalog-header/product-category";
-import {RandomProductPictureProviderService} from "../services/random-product-picture-provider.service";
+import {RandomProductPictureProviderService} from "../../services/random-product-picture-provider.service";
 
 @Component({
   selector: 'app-catalog-subcategories',

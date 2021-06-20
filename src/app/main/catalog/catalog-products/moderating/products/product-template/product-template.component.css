@@ -1,0 +1,105 @@
+.product-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+.top-part {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+.product-header {
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-part {
+  width: 100%;
+}
+.product-main-info {
+  height: 100%;
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  padding: 0.4rem;
+}
+.input-container > label {
+  padding: 0.25rem;
+}
+.product-gallery {
+  width: 54%;
+}
+.product-main-info > .form-floating {
+  padding: 0.3125rem;
+}
+.product-name {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+textarea {
+  min-height: 9rem;
+}
+.header-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: 2rem;
+}
+.datalist {
+  display: flex;
+  justify-content: space-between;
+}
+.datalist-button {
+  margin-left: 5%;
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  background-color: rgba(255, 23, 0, 0.1);
+}
+.btn-dark:disabled {
+  background-color: #cfcfcf;
+  border-color: #cfcfcf;
+}
+.validation-message {
+  font-weight: 500;
+  font-size: 1rem;
+  color: red;
+}
+@media(max-width: 54.625rem) {
+  .product-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-gallery {
+    padding-top: 1rem;
+  }
+  .product-main-info {
+    width: 90%;
+  }
+  .product-gallery {
+    width: 90%;
+  }
+}
+@media(max-width: 34.375rem) {
+  .product-form {
+    padding: 1.5rem .2rem;
+  }
+  .header-text-wrapper {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+  }
+  .product-header {
+    align-items: center;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+  .header-text-wrapper {
+    margin-bottom: 0.5rem;
+  }
+}
