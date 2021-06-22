@@ -1,12 +1,15 @@
 <div class="header-container">
+
   <div class="left-header">
     <a class="header-logo" href="#"><app-svg-image></app-svg-image></a>
   </div>
+
   <div class="header-burger" (click)="toggleDropdown()">
     <div></div>
     <div></div>
     <div></div>
   </div>
+
   <div class="right-header">
     <div class="header-nav-list" (click)="toggleDropdown()" [classToggle]="toggleValue" [toggleClass]="'header-nav-list-toggle'">
       <a class="btn regular-link" routerLink="/catalog">Catalog</a>
@@ -16,5 +19,6 @@
     </div>
     <app-right-column></app-right-column>
   </div>
+
 </div>
 

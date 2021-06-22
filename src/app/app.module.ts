@@ -30,7 +30,7 @@ import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-tw
 import { AddProductComponent } from './main/catalog/catalog-products/moderating/products/add-product/add-product.component';
 import { ProductTemplateComponent } from './main/catalog/catalog-products/moderating/products/product-template/product-template.component';
 import { ImageGalleryComponent } from './main/catalog/catalog-products/moderating/products/product-template/image-gallery/image-gallery.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import {FormsModule} from "@angular/forms";
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule
     ],
   providers: [ApiOriginService, RandomProductPictureProviderService],
   bootstrap: [AppComponent]

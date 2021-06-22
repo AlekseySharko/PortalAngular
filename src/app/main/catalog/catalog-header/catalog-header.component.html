@@ -1,7 +1,10 @@
 <div>
   <div class="catalog-header-categories">
-    <app-main-category *ngFor="let category of mainCategories" [mainCategory]="category" (click)="onMainCategorySelect(category.catalogMainCategoryId)"
-                       class="catalog-header-category"></app-main-category>
+    <app-main-category *ngFor="let category of mainCategories" [mainCategory]="category"
+                       (click)="onMainCategorySelect(category.catalogMainCategoryId)"
+                       class="catalog-header-category">
+    </app-main-category>
   </div>
+  
   <app-catalog-subcategories [subcategories]="selectedSubcategories"></app-catalog-subcategories>
 </div>
