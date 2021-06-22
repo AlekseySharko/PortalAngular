@@ -4,7 +4,7 @@
       <div class="product-header">
         <div class="header-text-wrapper"><span class="header-text">PRODUCT INFORMATION</span></div>
         <div class="product-control-buttons">
-          <button type="submit" class="btn-dark my-btn" [disabled]="!productForm.valid">Save changes</button>
+          <button type="submit" class="btn-dark my-btn" [disabled]="!canSaveChanges()">Save changes</button>
         </div>
       </div>
 
@@ -31,7 +31,6 @@
           <button class="btn btn-secondary datalist-button">Add</button>
         </div>
       </div>
-
       <div class="input-container">
         <label for="manufacturer">Manufacturer</label>
         <span *ngIf="!checkValidation('manufacturer')" class="validation-message">doesn't exist</span>

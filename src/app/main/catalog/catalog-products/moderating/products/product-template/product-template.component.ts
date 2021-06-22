@@ -36,17 +36,16 @@ export class ProductTemplateComponent implements OnInit, OnDestroy {
     this.product.productCategory = this.productCategories.find(c=> c.name == this.productForm.value.productCategory)
       ?? new ProductCategory();
     this.product.shortDescription = this.productForm.value.shortDescription;
-    console.log(this.product);
     this.productChanged.emit(this.product);
-  }
-
-  ngOnDestroy(): void {
-    this.productCategoriesSubscription.unsubscribe();
   }
 
   checkValidation(controlPath:string) {
     let control = this.productForm.get(controlPath);
     return control?.valid || !control?.touched;
+  }
+
+  canSaveChanges() {
+    return this.productForm.valid && this.product.images.length > 0;
   }
 
   initialiseFormGroup() {
@@ -69,5 +68,9 @@ export class ProductTemplateComponent implements OnInit, OnDestroy {
         Validators.required
       ])
     });
+  }
+
+  ngOnDestroy(): void {
+    this.productCategoriesSubscription.unsubscribe();
   }
 }

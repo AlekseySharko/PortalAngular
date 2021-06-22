@@ -1,9 +1,9 @@
 <div class="gallery-header">
   <span class="header-text">PRODUCT IMAGES</span>
   <div class="image-control-buttons">
-    <button class="my-btn btn-dark header-btn header-btn-add">Add image</button>
-    <button class="my-btn btn-dark header-btn">Edit</button>
-    <button class="my-btn header-btn header-btn-delete">Delete</button>
+    <button class="my-btn btn-dark header-btn header-btn-add" (click)="onAddImage()">Add image</button>
+    <button class="my-btn btn-dark header-btn" (click)="onEditImage()">Edit</button>
+    <button class="my-btn header-btn header-btn-delete" (click)="onDeleteImage()">Delete</button>
   </div>
 </div>
 
@@ -18,9 +18,12 @@
         class="gallery__selector"
         id="{{'img-' + i}}"
         name="gallery"
-        [(ngModel)]="selectedImage"
-        [value]="image.address"/>
-      <label for="{{'img-' + i}}"  class="gallery__thumb"><img [src]="image.address" alt=""/></label>
+        [ngModel]="selectedImage"
+        [value]="image.address"
+        (change)="onImageChange(i)"/>
+      <label for="{{'img-' + i}}"  class="gallery__thumb">
+        <img [src]="image.address" alt="" (error)="onInvalidUrl(i)"/>
+      </label>
     </div>
   </div>
 </div>

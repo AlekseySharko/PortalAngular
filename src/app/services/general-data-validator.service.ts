@@ -10,8 +10,6 @@ export class GeneralDataValidatorService {
 
   getInCollectionNameValidator(collection: NameAware[], error: string) {
     return function(control: FormControl) {
-      console.log(collection);
-      console.log(control);
       if(collection.find(item => item.name === control.value)) {
         return null;
       }

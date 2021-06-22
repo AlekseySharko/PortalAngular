@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
   --hover-color: #A0D3F9;
@@ -47,3 +48,4 @@ img {
   border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
