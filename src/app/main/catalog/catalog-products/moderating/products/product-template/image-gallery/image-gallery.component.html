@@ -6,6 +6,7 @@
     <button class="my-btn header-btn header-btn-delete">Delete</button>
   </div>
 </div>
+
 <div class="gallery">
   <div class="big-image">
     <img src="{{selectedImage}}">
@@ -18,8 +19,8 @@
         id="{{'img-' + i}}"
         name="gallery"
         [(ngModel)]="selectedImage"
-        [value]="image"/>
-      <label for="{{'img-' + i}}"  class="gallery__thumb"><img [src]="image" alt=""/></label>
+        [value]="image.address"/>
+      <label for="{{'img-' + i}}"  class="gallery__thumb"><img [src]="image.address" alt=""/></label>
     </div>
   </div>
 </div>
