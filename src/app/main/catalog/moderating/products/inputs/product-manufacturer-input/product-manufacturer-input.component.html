@@ -1,0 +1,13 @@
+<div class="input-container" [formGroup]="parentFormGroup">
+  <label for="manufacturer">Manufacturer</label>
+  <span [hidden]="checkValidation('manufacturer')" class="validation-message">doesn't exist</span>
+  <div class="datalist">
+    <input class="form-control datalist-input" formControlName="manufacturer" name="manufacturer" [matAutocomplete]="manufacturer" id="manufacturer">
+    <mat-autocomplete #manufacturer="matAutocomplete">
+      <mat-option *ngFor="let manufacturer of filteredProductManufacturerNames | async" [value]="manufacturer">
+        {{manufacturer}}
+      </mat-option>
+    </mat-autocomplete>
+    <button class="btn btn-secondary datalist-button" (click)="onAddManufacturer()">Add</button>
+  </div>
+</div>

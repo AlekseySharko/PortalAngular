@@ -1,0 +1,13 @@
+<div class="input-container" [formGroup]="parentFormGroup">
+  <label for="product-category">Product category</label>
+  <span [hidden]="checkValidation('product-category')" class="validation-message">doesn't exist</span>
+  <div class="datalist">
+    <input class="form-control datalist-input" [matAutocomplete]="productCategory" formControlName="product-category" id="product-category">
+    <mat-autocomplete #productCategory="matAutocomplete">
+      <mat-option *ngFor="let category of filteredProductCategoryNames | async" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-autocomplete>
+    <button class="btn btn-secondary datalist-button" (click)="onAddProductCategory()">Add</button>
+  </div>
+</div>

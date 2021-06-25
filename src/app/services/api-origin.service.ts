@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiOriginService {
-  readonly apiOrigin = "http://localhost:9044";
+  readonly apiOrigin = "http://localhost:5000";
 }

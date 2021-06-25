@@ -27,9 +27,9 @@ import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalo
 import {RandomProductPictureProviderService} from "./main/catalog/services/random-product-picture-provider.service";
 import { TestOneComponent } from './main/entertainment/test-one/test-one.component';
 import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-two.component';
-import { AddProductComponent } from './main/catalog/catalog-products/moderating/products/add-product/add-product.component';
-import { ProductTemplateComponent } from './main/catalog/catalog-products/moderating/products/product-template/product-template.component';
-import { ImageGalleryComponent } from './main/catalog/catalog-products/moderating/products/product-template/image-gallery/image-gallery.component';
+import { AddProductComponent } from './main/catalog/moderating/products/add-product/add-product.component';
+import { ProductTemplateComponent } from './main/catalog/moderating/products/product-template/product-template.component';
+import { ImageGalleryComponent } from './main/catalog/moderating/products/product-template/image-gallery/image-gallery.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
@@ -37,48 +37,16 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { SingleStringDialogComponent } from './main/dialogs/single-string-dialog/single-string-dialog.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {DragDropModule} from "@angular/cdk/drag-drop";
-import {MatBadgeModule} from "@angular/material/badge";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatCardModule} from "@angular/material/card";
-import {MatDividerModule} from "@angular/material/divider";
-import {MatStepperModule} from "@angular/material/stepper";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {MatButtonModule} from "@angular/material/button";
-import {MatChipsModule} from "@angular/material/chips";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatTreeModule} from "@angular/material/tree";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatSelectModule} from "@angular/material/select";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {ScrollingModule} from "@angular/cdk/scrolling";
-import {MatIconModule} from "@angular/material/icon";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatListModule} from "@angular/material/list";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatRadioModule} from "@angular/material/radio";
-import {MatNativeDateModule, MatRippleModule} from "@angular/material/core";
-import {MatSliderModule} from "@angular/material/slider";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {OverlayModule} from "@angular/cdk/overlay";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatGridListModule} from "@angular/material/grid-list";
-import {MatSortModule} from "@angular/material/sort";
-import {MatTableModule} from "@angular/material/table";
-import {MatTabsModule} from "@angular/material/tabs";
-import {MatTooltipModule} from "@angular/material/tooltip";
-import {PortalModule} from "@angular/cdk/portal";
-import {CdkTableModule} from "@angular/cdk/table";
-import {CdkTreeModule} from "@angular/cdk/tree";
-import {CdkStepperModule} from "@angular/cdk/stepper";
-import {ClipboardModule} from "@angular/cdk/clipboard";
-import {A11yModule} from "@angular/cdk/a11y";
 import { AreYouSureDialogComponent } from './main/dialogs/are-you-sure-dialog/are-you-sure-dialog.component';
 import { InformationDialogComponent } from './main/dialogs/information-dialog/information-dialog.component';
+import { ProductCategoryInputComponent } from './main/catalog/moderating/products/inputs/product-category-input/product-category-input.component';
+import { ProductManufacturerInputComponent } from './main/catalog/moderating/products/inputs/product-manufacturer-input/product-manufacturer-input.component';
+import { AddManufacturerDialogComponent } from './main/catalog/moderating/products/dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component';
+import { EditProductRelatedEntitiesComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-related-entities.component';
+import { AddProductCategoryDialogComponent } from './main/catalog/moderating/products/dialogs/add-product-category-dialog/add-product-category-dialog.component';
+import { CatalogMainCategoryInputComponent } from './main/catalog/moderating/products/inputs/catalog-main-category-input/catalog-main-category-input.component';
+import { CatalogSubcategoryInputComponent } from './main/catalog/moderating/products/inputs/catalog-subcategory-input/catalog-subcategory-input.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -109,7 +77,14 @@ import { InformationDialogComponent } from './main/dialogs/information-dialog/in
     ImageGalleryComponent,
     SingleStringDialogComponent,
     AreYouSureDialogComponent,
-    InformationDialogComponent
+    InformationDialogComponent,
+    ProductCategoryInputComponent,
+    ProductManufacturerInputComponent,
+    AddManufacturerDialogComponent,
+    EditProductRelatedEntitiesComponent,
+    AddProductCategoryDialogComponent,
+    CatalogMainCategoryInputComponent,
+    CatalogSubcategoryInputComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +96,8 @@ import { InformationDialogComponent } from './main/dialogs/information-dialog/in
     MatDialogModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [ApiOriginService, RandomProductPictureProviderService],
   bootstrap: [AppComponent]

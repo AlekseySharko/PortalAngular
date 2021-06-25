@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductImage} from "../../../../../catalog-classes/products/product-image";
+import {ProductImage} from "../../../../catalog-classes/products/product-image";
 import {MatDialog} from "@angular/material/dialog";
-import {SingleStringDialogComponent} from "../../../../../../dialogs/single-string-dialog/single-string-dialog.component";
-import {InformationDialogComponent} from "../../../../../../dialogs/information-dialog/information-dialog.component";
-import {AreYouSureDialogComponent} from "../../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {SingleStringDialogComponent} from "../../../../../dialogs/single-string-dialog/single-string-dialog.component";
+import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
+import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
 
 @Component({
   selector: 'app-image-gallery',
@@ -14,9 +14,9 @@ export class ImageGalleryComponent implements OnInit {
   @Input() images: ProductImage[] = [];
   selectedId!: number;
   selectedImage: string = 'https://icon-library.com/images/image-placeholder-icon/image-placeholder-icon-16.jpg';
-  constructor(private dialog: MatDialog) {}
   beforeEditImage: string = '';
 
+  constructor(private dialog: MatDialog) {}
   ngOnInit(): void {
     this.setInitialImage();
   }

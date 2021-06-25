@@ -12,4 +12,7 @@ export class MainCategoryStandardProviderService implements MainCategoryProvider
   getAllCategories() {
     return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin + "/api/catalog/main-categories/");
   }
+  getAllCategoriesIncludingSubs() {
+    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin + "/api/catalog/main-categories?includeSubcategories=true");
+  }
 }

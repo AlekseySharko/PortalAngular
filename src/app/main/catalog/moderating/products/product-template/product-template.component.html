@@ -1,0 +1,36 @@
+<form class="product-form" [formGroup]="productForm" (ngSubmit)="onSaveChanges()">
+
+    <div class="product-main-info">
+      <div class="product-header">
+        <div class="header-text-wrapper"><span class="header-text">PRODUCT INFORMATION</span></div>
+        <div class="product-control-buttons">
+          <button type="submit" class="btn-dark my-btn" [disabled]="!canSaveChanges()">Save changes</button>
+        </div>
+      </div>
+
+      <div class="input-container product-name">
+        <label for="name">Product name</label>
+        <span *ngIf="!checkValidation('name')" class="validation-message">is invalid</span>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+
+      <div class="input-container">
+        <label for="price">Price</label>
+        <span *ngIf="!checkValidation('price')" class="validation-message">is invalid</span>
+        <input type="number" class="form-control" id="price" formControlName="price">
+      </div>
+
+      <app-product-category-input [parentFormGroup]="productForm"></app-product-category-input>
+
+      <app-product-manufacturer-input [parentFormGroup]="productForm"></app-product-manufacturer-input>
+
+      <div class="input-container">
+        <label for="short-description">Short description</label>
+        <textarea type="text" maxlength="150" class="form-control" id="short-description" formControlName="short-description">
+        </textarea>
+      </div>
+    </div>
+
+    <app-image-gallery class="product-gallery" [images]="product.images"></app-image-gallery>
+
+</form>

@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+  <h4 class="header-text">
+    Add manufacturer
+    <button class="btn btn-dark edit-btn" [routerLink]="['/catalog/moderating/product-related/edit']" [mat-dialog-close]="true">Edit</button>
+  </h4>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput ngModel [(ngModel)]="this.manufacturerName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-dark" [mat-dialog-close]="true">Add</button>
+  <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+</div>
