@@ -1,0 +1,63 @@
+.entities-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.catalog-header {
+  grid-column: 1/3;
+}
+.entities-container > .editable-component {
+  padding: 0.5rem;
+}
+:host ::ng-deep.related-form {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+:host ::ng-deep.header-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+:host ::ng-deep.header-text-wrapper {
+  margin-bottom: 0.5rem;
+}
+:host ::ng-deep.input-with-buttons {
+  display: flex;
+  justify-content: stretch;
+}
+:host ::ng-deep.input-with-buttons > input {
+  margin-right: 0.5rem;
+}
+:host ::ng-deep.btn-delete {
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #212529, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #212529, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+:host ::ng-deep.btn:focus{
+  box-shadow: none;
+  color: #86A8E7;
+}
+
+@media(max-width: 54.625rem) {
+  .entities-container {
+    grid-template-columns: 1fr;
+  }
+  .catalog-header {
+    grid-column: 1/2;
+  }
+}
+@media(max-width: 32.4375rem) {
+  :host ::ng-deep.input-with-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  :host ::ng-deep.input-with-buttons > input {
+    margin-right: initial;
+    margin-bottom: 0.7rem;
+  }
+}

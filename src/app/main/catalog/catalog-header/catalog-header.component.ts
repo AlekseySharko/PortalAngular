@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MainCategoryStandardProviderService} from "../services/main-category-standard-provider.service";
 import {CatalogMainCategory} from "../catalog-classes/catalog-header/catalog-main-category";
 import {CatalogSubCategory} from "../catalog-classes/catalog-header/catalog-subcategory";
-import {SubCategoryStandardProviderService} from "../services/sub-category-standard-provider.service";
 import {Observable, Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
@@ -14,23 +13,27 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CatalogHeaderComponent implements OnInit, OnDestroy {
   mainCategories: CatalogMainCategory[] = [];
+  selectedMainCategory: CatalogMainCategory = new CatalogMainCategory();
   selectedSubcategories: CatalogSubCategory[] = [];
+  subsHidden: boolean = true;
   categoriesSubscription: Subscription = new Subscription();
 
-  constructor(private route: ActivatedRoute,
-              private subCategoryStandardProviderService: SubCategoryStandardProviderService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.categoriesSubscription = this.route.data.subscribe(data => {
-      this.mainCategories = data['mainCategories'];
-      this.onMainCategorySelect(this.mainCategories[0]?.catalogMainCategoryId);
+      this.mainCategories = data['mainCategoriesWithSubsAndProds'];
     });
   }
 
-  onMainCategorySelect(mainCategoryId:number) {
-    this.subCategoryStandardProviderService.getSubCategories(mainCategoryId).subscribe(
-      (sc: CatalogSubCategory[]) => this.selectedSubcategories = sc
-    )
+  onMainCategorySelect(mainCategory: CatalogMainCategory) {
+    if(this.selectedMainCategory == mainCategory && !this.subsHidden) {
+      this.subsHidden = true;
+      return;
+    }
+    this.subsHidden = false;
+    this.selectedMainCategory = mainCategory;
+    this.selectedSubcategories = mainCategory.subCategories;
   }
 
   ngOnDestroy(): void {

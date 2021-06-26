@@ -1,12 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {Observable, Subscription} from "rxjs";
 import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
 import {ActivatedRoute} from "@angular/router";
 import {map, startWith} from "rxjs/operators";
 import {Filter} from "../../../../catalog-classes/helpers/filter";
 import {Manufacturer} from "../../../../catalog-classes/products/manufacturer";
-import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
 
@@ -33,7 +32,6 @@ export class ProductManufacturerInputComponent implements OnInit {
         this.generalValidation.getEmptyOrWhiteSpaceValidator(),
         this.generalValidation.getInCollectionNameValidator(this.productManufacturers,'NoSuchManufacturer')
       ]);
-      console.log(this.productManufacturerFormControl);
       this.parentFormGroup.addControl('manufacturer', this.productManufacturerFormControl);
       this.setUpAutocomplete();
     });
@@ -59,6 +57,6 @@ export class ProductManufacturerInputComponent implements OnInit {
 
   checkValidation(controlPath:string) {
     let control = this.parentFormGroup.get(controlPath);
-    return control?.valid || !control?.dirty;
+    return control?.valid || !control?.touched;
   }
 }

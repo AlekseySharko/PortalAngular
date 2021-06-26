@@ -22,7 +22,7 @@
 .catalog-header-category:last-child {
   border-right: initial;
 }
-.catalog-header-category:hover {
+.catalog-header-category:hover, .selectedMainCategory {
   background-position: bottom;
   background-color:rgba(0,0,70,0.3);
   cursor: pointer;
@@ -30,7 +30,6 @@
   padding-top: 0.25rem;
   transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
 }
-
 .category-name {
   padding-top: 0.3rem;
   font-size: 0.8rem;

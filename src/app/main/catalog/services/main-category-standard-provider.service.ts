@@ -10,9 +10,15 @@ import {ApiOriginService} from "../../../services/api-origin.service";
 export class MainCategoryStandardProviderService implements MainCategoryProvider{
   constructor(private api: ApiOriginService, private http: HttpClient) { }
   getAllCategories() {
-    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin + "/api/catalog/main-categories/");
+    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin +
+      "/api/catalog/main-categories/");
   }
   getAllCategoriesIncludingSubs() {
-    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin + "/api/catalog/main-categories?includeSubcategories=true");
+    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin +
+      "/api/catalog/main-categories?includeSubcategories=true");
+  }
+  getAllCategoriesIncludingSubsAndProductCategories() {
+    return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin +
+      "/api/catalog/main-categories?includeSubcategories=true&includeProductCategories=true");
   }
 }

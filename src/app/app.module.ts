@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -39,14 +38,13 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { AreYouSureDialogComponent } from './main/dialogs/are-you-sure-dialog/are-you-sure-dialog.component';
 import { InformationDialogComponent } from './main/dialogs/information-dialog/information-dialog.component';
-import { ProductCategoryInputComponent } from './main/catalog/moderating/products/inputs/product-category-input/product-category-input.component';
-import { ProductManufacturerInputComponent } from './main/catalog/moderating/products/inputs/product-manufacturer-input/product-manufacturer-input.component';
+import { ProductCategoryInputComponent } from './main/catalog/moderating/products/product-template/product-category-input/product-category-input.component';
+import { ProductManufacturerInputComponent } from './main/catalog/moderating/products/product-template/product-manufacturer-input/product-manufacturer-input.component';
 import { AddManufacturerDialogComponent } from './main/catalog/moderating/products/dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component';
 import { EditProductRelatedEntitiesComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-related-entities.component';
 import { AddProductCategoryDialogComponent } from './main/catalog/moderating/products/dialogs/add-product-category-dialog/add-product-category-dialog.component';
-import { CatalogMainCategoryInputComponent } from './main/catalog/moderating/products/inputs/catalog-main-category-input/catalog-main-category-input.component';
-import { CatalogSubcategoryInputComponent } from './main/catalog/moderating/products/inputs/catalog-subcategory-input/catalog-subcategory-input.component';
 import {MatSelectModule} from "@angular/material/select";
+import { AddMainCategoryComponentComponent } from './main/catalog/moderating/products/edit-product-related-entities/add-main-category-component/add-main-category-component.component';
 
 @NgModule({
   declarations: [
@@ -83,8 +81,7 @@ import {MatSelectModule} from "@angular/material/select";
     AddManufacturerDialogComponent,
     EditProductRelatedEntitiesComponent,
     AddProductCategoryDialogComponent,
-    CatalogMainCategoryInputComponent,
-    CatalogSubcategoryInputComponent
+    AddMainCategoryComponentComponent
   ],
   imports: [
     BrowserModule,

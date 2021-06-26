@@ -1,10 +1,15 @@
 <div>
   <div class="catalog-header-categories">
     <app-main-category *ngFor="let category of mainCategories" [mainCategory]="category"
-                       (click)="onMainCategorySelect(category.catalogMainCategoryId)"
-                       class="catalog-header-category">
+                       (click)="onMainCategorySelect(category)"
+                       class="catalog-header-category"
+                       [ngClass]="{'selectedMainCategory': selectedMainCategory == category && !subsHidden}">
     </app-main-category>
   </div>
-  
-  <app-catalog-subcategories [subcategories]="selectedSubcategories"></app-catalog-subcategories>
+
+  <app-catalog-subcategories
+    class="catalog-subcategories"
+    [subcategories]="selectedSubcategories"
+    [hidden]="subsHidden">
+  </app-catalog-subcategories>
 </div>

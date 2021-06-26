@@ -2,8 +2,9 @@
 
   <div class="subs">
     <div class="subcategory" *ngFor="let subCategory of subcategories" [textContent]="subCategory.name"
-         (mouseenter)="onSubcategoryHover(subCategory)"></div>
+         (mouseenter)="onSubcategoryHover(subCategory)"
+         [ngClass]="{'selected-sub-category': subCategory == selectedSubCategory}"></div>
   </div>
 
-  <app-product-categories [selectedCategories]="selectedProductCategories" class="product-categories"></app-product-categories>
+  <app-product-categories [selectedCategories]="selectedSubCategory.productCategories" class="product-categories"></app-product-categories>
 </div>

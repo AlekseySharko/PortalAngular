@@ -11,16 +11,16 @@ import {AddProductComponent} from "./main/catalog/moderating/products/add-produc
 import {ProductCategoriesResolverService} from "./main/catalog/services/resolvers/product-categories-resolver.service";
 import {ProductManufacturerResolverService} from "./main/catalog/services/resolvers/product-manufacturer-resolver.service";
 import {EditProductRelatedEntitiesComponent} from "./main/catalog/moderating/products/edit-product-related-entities/edit-product-related-entities.component";
+import {MainCategoriesWithSubsAndProdsResolverService} from "./main/catalog/services/resolvers/main-categories-with-subs-and-prods-resolver.service";
 
 const catalogRoutes: Routes = [
-  { path:'', component:CatalogHomeComponent, resolve: { mainCategories: MainCategoriesResolverService } },
+  { path:'', component:CatalogHomeComponent, resolve: { mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService } },
   { path: 'moderating/product/add', component: AddProductComponent, resolve: {
       productCategories: ProductCategoriesResolverService,
       productManufacturers: ProductManufacturerResolverService
     } },
   { path: 'moderating/product-related/edit', component: EditProductRelatedEntitiesComponent, resolve: {
-      productCategories: ProductCategoriesResolverService,
-      productManufacturers: ProductManufacturerResolverService
+      mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService
     } },
   { path:':category', component:CatalogProductsComponent, resolve: { mainCategories: MainCategoriesResolverService } },
 ];

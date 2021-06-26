@@ -1,0 +1,29 @@
+<form class="related-form" [formGroup]="mainCategoryFormGroup">
+    <div class="related-header">
+      <div class="header-text-wrapper"><span class="header-text">CATALOG MAIN CATEGORY</span></div>
+    </div>
+
+    <div class="input-container">
+      <label for="main-category-name">Name</label>
+      <span *ngIf="!checkNameValidation()" class="validation-message"> is invalid</span>
+      <div class="input-with-buttons">
+        <input type="text" formControlName="main-category-name" [matAutocomplete]="mainCategory" class="form-control" id="main-category-name">
+        <mat-autocomplete #mainCategory="matAutocomplete">
+          <mat-option *ngFor="let manufacturer of filteredMainCategoryNames | async" [value]="manufacturer">
+            {{manufacturer}}
+          </mat-option>
+        </mat-autocomplete>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-dark">Add</button>
+          <button type="button" class="btn btn-dark">Edit</button>
+          <button type="button" class="btn btn-delete">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label for="main-category-name">Image</label>
+      <span *ngIf="!checkNameValidation()" class="validation-message"> is invalid</span>
+      <input type="text" formControlName="main-category-image" class="form-control" id="main-category-image">
+    </div>
+</form>

@@ -10,12 +10,12 @@ import {RandomProductPictureProviderService} from "../../services/random-product
 })
 export class CatalogSubcategoriesComponent implements OnInit {
   @Input() subcategories:CatalogSubCategory[] = [];
-  selectedProductCategories: ProductCategory[] = [];
+  selectedSubCategory: CatalogSubCategory = new CatalogSubCategory();
 
   ngOnInit(): void {
   }
 
   onSubcategoryHover(catalogSubcategory: CatalogSubCategory) {
-    this.selectedProductCategories = catalogSubcategory.productCategories;
+    this.selectedSubCategory = catalogSubcategory;
   }
 }
