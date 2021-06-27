@@ -29,7 +29,7 @@ export class ImageGalleryComponent implements OnInit {
   onInvalidUrl(index: number) {
     const dialogRef = this.dialog.open(InformationDialogComponent, {
       width: '23rem',
-      data: this.images[index].address
+      data: {bold: this.images[index].address, regular: " invalid and is going to be removed"}
     });
     if(this.beforeEditImage) {
       this.images[index].address = this.beforeEditImage;

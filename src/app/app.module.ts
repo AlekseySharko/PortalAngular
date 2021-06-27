@@ -44,7 +44,10 @@ import { AddManufacturerDialogComponent } from './main/catalog/moderating/produc
 import { EditProductRelatedEntitiesComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-related-entities.component';
 import { AddProductCategoryDialogComponent } from './main/catalog/moderating/products/dialogs/add-product-category-dialog/add-product-category-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
-import { AddMainCategoryComponentComponent } from './main/catalog/moderating/products/edit-product-related-entities/add-main-category-component/add-main-category-component.component';
+import { EditMainCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-main-category/edit-main-category.component';
+import { EditSubCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-sub-category/edit-sub-category.component';
+import { EditProductCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-category/edit-product-category.component';
+import { EditManufacturerComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-manufacturer/edit-manufacturer.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { AddMainCategoryComponentComponent } from './main/catalog/moderating/pro
     AddManufacturerDialogComponent,
     EditProductRelatedEntitiesComponent,
     AddProductCategoryDialogComponent,
-    AddMainCategoryComponentComponent
+    EditMainCategoryComponent,
+    EditSubCategoryComponent,
+    EditProductCategoryComponent,
+    EditManufacturerComponent
   ],
   imports: [
     BrowserModule,

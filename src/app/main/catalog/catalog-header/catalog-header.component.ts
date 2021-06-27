@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MainCategoryStandardProviderService} from "../services/main-category-standard-provider.service";
 import {CatalogMainCategory} from "../catalog-classes/catalog-header/catalog-main-category";
 import {CatalogSubCategory} from "../catalog-classes/catalog-header/catalog-subcategory";
-import {Observable, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

@@ -1,0 +1,33 @@
+<form class="related-form" [formGroup]="manufacturerFormGroup">
+  <div class="related-header">
+    <div class="header-text-wrapper">
+      <span class="header-text">PRODUCT MANUFACTURER</span>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" (click)="onAdd()">Add</button>
+        <button type="button" class="btn btn-dark" [disabled]="!checkSelection()" (click)="onEdit()">Edit</button>
+        <button type="button" class="btn btn-delete" [disabled]="!checkSelection()" (click)="onDelete()">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Manufacturer</mat-label>
+      <input
+        matInput
+        class="datalist-input"
+        formControlName="manufacturer-name"
+        name="manufacturer-name"
+        [matAutocomplete]="manufacturer"
+        id="manufacturer-name">
+      <mat-error *ngIf="manufacturerNameFormControl.invalid && manufacturerNameFormControl.dirty">
+        No such manufacturer
+      </mat-error>
+      <mat-autocomplete #manufacturer="matAutocomplete">
+        <mat-option *ngFor="let manufacturer of filteredManufacturerNames | async" [value]="manufacturer">
+          {{manufacturer}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</form>

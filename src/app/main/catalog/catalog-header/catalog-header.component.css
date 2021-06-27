@@ -22,14 +22,6 @@
 .catalog-header-category:last-child {
   border-right: initial;
 }
-.catalog-header-category:hover, .selectedMainCategory {
-  background-position: bottom;
-  background-color:rgba(0,0,70,0.3);
-  cursor: pointer;
-  border-top: 2px solid #EFEFEF;
-  padding-top: 0.25rem;
-  transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
-}
 .category-name {
   padding-top: 0.3rem;
   font-size: 0.8rem;
@@ -50,6 +42,15 @@ svg {
   max-height: 2.5rem;
 }
 
+@media(min-width: 54.625rem) {
+  .catalog-header-category:hover, .selectedMainCategory {
+    background-color:rgba(0,0,70,0.3);
+    cursor: pointer;
+    border-top: 2px solid #EFEFEF;
+    padding-top: 0.25rem;
+    transition: all 0.3s ease, padding-bottom 0s, border-bottom-width 0s;
+  }
+}
 @media(max-width: 54.625rem) {
   .catalog-header-categories {
     flex-direction: column;
@@ -57,9 +58,5 @@ svg {
   .catalog-header-category {
     border-top: none;
     border-right: none;
-  }
-  .catalog-header-category:hover {
-    border-top: none;
-    padding-top: 0.3125rem;
   }
 }

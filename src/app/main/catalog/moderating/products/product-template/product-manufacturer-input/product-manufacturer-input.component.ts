@@ -38,10 +38,13 @@ export class ProductManufacturerInputComponent implements OnInit {
   }
 
   onAddManufacturer() {
+    let inputManufacturer = new Manufacturer();
+    inputManufacturer.name = this.productManufacturerFormControl?.value;
     const dialogRef = this.dialog.open(AddManufacturerDialogComponent, {
       width: '24rem',
-      data: this.productManufacturerFormControl?.value
+      data: {edit: false, manufacturer: inputManufacturer}
     });
+
     dialogRef.afterClosed().subscribe(result => {
       if(!result) return;
     });

@@ -20,7 +20,8 @@ const catalogRoutes: Routes = [
       productManufacturers: ProductManufacturerResolverService
     } },
   { path: 'moderating/product-related/edit', component: EditProductRelatedEntitiesComponent, resolve: {
-      mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService
+      mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService,
+      productManufacturers: ProductManufacturerResolverService
     } },
   { path:':category', component:CatalogProductsComponent, resolve: { mainCategories: MainCategoriesResolverService } },
 ];

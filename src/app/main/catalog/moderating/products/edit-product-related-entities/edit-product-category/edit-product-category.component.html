@@ -1,0 +1,38 @@
+<form class="related-form">
+  <div class="related-header">
+    <div class="header-text-wrapper">
+      <span class="header-text">PRODUCT CATEGORY</span>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark">Add</button>
+        <button type="button" class="btn btn-dark">Edit</button>
+        <button type="button" class="btn btn-delete">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Main category</mat-label>
+    <mat-select matNativeControl (selectionChange)="onMainCategoryChange($event)">
+      <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Sub category</mat-label>
+    <mat-select
+        matNativeControl
+        [disabled]="selectedMainCategory.subCategories.length < 1"
+        (selectionChange)="onSubCategoryChange($event)">
+      <mat-option *ngFor="let subCategory of selectedMainCategory.subCategories" [value]="subCategory">
+        {{subCategory.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Product category</mat-label>
+    <mat-select matNativeControl [disabled]="selectedSubCategory.productCategories.length < 1">
+      <mat-option *ngFor="let prodCategory of selectedSubCategory.productCategories" [value]="prodCategory">
+        {{prodCategory.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

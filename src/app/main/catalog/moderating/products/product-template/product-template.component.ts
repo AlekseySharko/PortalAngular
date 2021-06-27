@@ -44,7 +44,7 @@ export class ProductTemplateComponent implements OnInit, OnDestroy {
 
   checkValidation(controlPath:string) {
     let control = this.productForm.get(controlPath);
-    return control?.valid || !control?.touched;
+    return control?.valid || !control?.dirty;
   }
 
   initialiseFormGroup() {

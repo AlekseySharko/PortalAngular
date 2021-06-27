@@ -57,9 +57,9 @@ textarea {
 :host ::ng-deep.datalist-button {
   margin-left: 5%;
 }
-input.ng-invalid.ng-touched,
-textarea.ng-invalid.ng-touched,
-:host ::ng-deep input.ng-invalid.ng-touched {
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty,
+:host ::ng-deep input.ng-invalid.ng-dirty {
   background-color: rgba(255, 23, 0, 0.1);
   transition: all 0.3s ease;
 }

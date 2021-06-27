@@ -1,18 +1,28 @@
-<div mat-dialog-content>
+<form mat-dialog-content #f="ngForm">
   <h4 class="header-text">
-    Add manufacturer
+    <span *ngIf="data.edit; else addHeader">Edit manufacturer </span>
+    <ng-template #addHeader>Add manufacturer </ng-template>
     <button class="btn btn-dark edit-btn" [routerLink]="['/catalog/moderating/product-related/edit']" [mat-dialog-close]="true">Edit</button>
   </h4>
   <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput ngModel [(ngModel)]="this.manufacturerName">
+    <input matInput ngModel name="manufacturer-name" [(ngModel)]="this.manufacturerName" required #name="ngModel">
+    <mat-error *ngIf="name.invalid && name.touched">
+      Name is required
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Country</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="this.manufacturerCountry" name="manufacturer-country" required #country="ngModel">
+    <mat-error *ngIf="country.invalid && country.touched">
+      Country name is required
+    </mat-error>
   </mat-form-field>
-</div>
+</form>
 <div mat-dialog-actions>
-  <button class="btn btn-dark" [mat-dialog-close]="true">Add</button>
+  <button class="btn btn-dark" [disabled]="f.invalid" (click)="onAddClick()">
+    <span *ngIf="data.edit; else addButton">Save</span>
+    <ng-template #addButton>Add</ng-template>
+  </button>
   <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
 </div>
