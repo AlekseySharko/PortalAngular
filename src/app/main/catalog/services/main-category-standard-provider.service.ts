@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {MainCategoryProvider} from "../catalog-classes/catalog-header/main-category-provider";
-import {CatalogMainCategory} from "../catalog-classes/catalog-header/catalog-main-category";
+import {MainCategoryProvider} from "../classes/catalog-header/main-category-provider";
+import {CatalogMainCategory} from "../classes/catalog-header/catalog-main-category";
 import {HttpClient} from "@angular/common/http";
 import {ApiOriginService} from "../../../services/api-origin.service";
 
@@ -20,5 +20,14 @@ export class MainCategoryStandardProviderService implements MainCategoryProvider
   getAllCategoriesIncludingSubsAndProductCategories() {
     return this.http.get<CatalogMainCategory[]>(this.api.apiOrigin +
       "/api/catalog/main-categories?includeSubcategories=true&includeProductCategories=true");
+  }
+  postCategory(mainCategory: CatalogMainCategory) {
+    return this.http.post(this.api.apiOrigin + "/api/catalog/main-categories/", mainCategory);
+  }
+  putCategory(mainCategory: CatalogMainCategory) {
+    return this.http.put(this.api.apiOrigin + "/api/catalog/main-categories/", mainCategory);
+  }
+  deleteCategory(mainCategoryId: number) {
+    return this.http.delete(this.api.apiOrigin + "/api/catalog/main-categories/" + mainCategoryId);
   }
 }

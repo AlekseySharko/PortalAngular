@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ProductCategoryStandardProviderService} from "../product-category-standard-provider.service";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {ProductCategory} from "../../catalog-classes/catalog-header/product-category";
+import {ProductCategory} from "../../classes/catalog-header/product-category";
 import {Observable} from "rxjs";
 
 @Injectable({

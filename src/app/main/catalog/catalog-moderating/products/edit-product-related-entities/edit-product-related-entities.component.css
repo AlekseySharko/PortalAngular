@@ -1,0 +1,82 @@
+.entities-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.catalog-header {
+  grid-column: 1/3;
+}
+.entities-container > .editable-component {
+  padding: 0.5rem;
+}
+:host ::ng-deep.related-form {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+:host ::ng-deep.input-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+:host ::ng-deep.header-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+:host ::ng-deep.header-text-wrapper {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+:host ::ng-deep.input-with-buttons {
+  display: flex;
+  justify-content: stretch;
+}
+:host ::ng-deep.btn-delete {
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #212529, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #212529, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+:host ::ng-deep.btn:disabled {
+  opacity: 1;
+  color: #cfcfcf;
+}
+:host ::ng-deep.btn:focus{
+  box-shadow: none;
+  color: #86A8E7;
+}
+:host ::ng-deep.validation-message {
+  font-weight: 500;
+  font-size: 1rem;
+  color: red;
+  transition: all 0.3s ease;
+}
+:host ::ng-deep mat-form-field {
+  width: 100%;
+  font-size: 1.1rem;
+}
+:host ::ng-deep label, :host ::ng-deep span {
+  height: 100%;
+}
+@media(max-width: 54.625rem) {
+  .entities-container {
+    grid-template-columns: 1fr;
+  }
+  .catalog-header {
+    grid-column: 1/2;
+    grid-row: 9000;
+  }
+}
+@media(max-width: 33.5rem) {
+  :host ::ng-deep.header-text-wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

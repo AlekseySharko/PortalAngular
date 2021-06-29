@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductCategory} from "../../../catalog-classes/catalog-header/product-category";
+import {ProductCategory} from "../../../classes/catalog-header/product-category";
 import {RandomProductPictureProviderService} from "../../../services/random-product-picture-provider.service";
 
 @Component({

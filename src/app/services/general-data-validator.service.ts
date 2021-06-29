@@ -8,6 +8,8 @@ import {AbstractControl, FormControl} from "@angular/forms";
 export class GeneralDataValidatorService {
   constructor() { }
 
+  imagePatternRegex = new RegExp("(https://|http://).+(.bmp|.jpg|.jpeg|.gif|.png|.svg)$", "i")
+
   getInCollectionNameValidator(collection: NameAware[], error: string) {
     return function(control: AbstractControl) {
       if(collection.find(item => item.name === control.value)) {

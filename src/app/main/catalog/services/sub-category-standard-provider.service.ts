@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {CatalogSubCategory} from "../catalog-classes/catalog-header/catalog-subcategory";
+import {CatalogSubCategory} from "../classes/catalog-header/catalog-subcategory";
 import {ApiOriginService} from "../../../services/api-origin.service";
 
 @Injectable({

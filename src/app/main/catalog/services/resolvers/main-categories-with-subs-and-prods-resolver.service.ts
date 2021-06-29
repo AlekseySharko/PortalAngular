@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {MainCategoryStandardProviderService} from "../main-category-standard-provider.service";
 import {ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs";
-import {CatalogMainCategory} from "../../catalog-classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../classes/catalog-header/catalog-main-category";
 
 @Injectable({
   providedIn: 'root'

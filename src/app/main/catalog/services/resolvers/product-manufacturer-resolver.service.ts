@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs";
 import {ProductManufacturerStandardProviderService} from "../product-manufacturer-standard-provider.service";
-import {Manufacturer} from "../../catalog-classes/products/manufacturer";
+import {Manufacturer} from "../../classes/products/manufacturer";
 
 @Injectable({
   providedIn: 'root'

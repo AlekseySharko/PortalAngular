@@ -8,16 +8,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
 }
 html, body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   min-width: var(--min-page-width);
-  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }
 .bg-peddle-gradient-1 {
@@ -47,4 +46,8 @@ img {
   border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-form-field {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.2rem;
+}

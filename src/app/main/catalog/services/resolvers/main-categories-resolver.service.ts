@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {CatalogMainCategory} from "../../catalog-classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../classes/catalog-header/catalog-main-category";
 import {Observable} from "rxjs";
 import {MainCategoryStandardProviderService} from "../main-category-standard-provider.service";
 

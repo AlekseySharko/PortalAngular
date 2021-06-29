@@ -1,0 +1,33 @@
+<form mat-dialog-content #f="ngForm">
+  <h4 class="header-text">
+    <span *ngIf="data.edit; else addHeader">Edit product category </span>
+    <ng-template #addHeader><span>Add product category </span></ng-template>
+    <button class="btn btn-dark edit-btn" [routerLink]="['/catalog/moderating/product-related/edit']" [mat-dialog-close]="true">Edit</button>
+  </h4>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Main categories</mat-label>
+    <mat-select matNativeControl [(value)]="selectedMainCategory" ngModel name="main-category" #mainCategorySel="ngModel" required>
+      <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Subcategories</mat-label>
+    <mat-select matNativeControl required [(value)]="selectedSubCategory" ngModel name="sub-category" [disabled]="!!mainCategorySel.invalid">
+      <mat-option *ngFor="let subcategory of selectedMainCategory.subCategories" [value]="subcategory.name">{{subcategory.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Product category name</mat-label>
+    <input matInput [(ngModel)]="productCategoryName" name="product-category-name" required>
+  </mat-form-field>
+</form>
+<div mat-dialog-actions>
+  <button class="btn btn-dark" [disabled]="f.invalid" [mat-dialog-close]="true">
+    <span *ngIf="data.edit; else addBtn">Save</span>
+    <ng-template #addBtn><span>Add</span></ng-template>
+  </button>
+  <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+</div>

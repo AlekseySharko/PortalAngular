@@ -26,9 +26,9 @@ import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalo
 import {RandomProductPictureProviderService} from "./main/catalog/services/random-product-picture-provider.service";
 import { TestOneComponent } from './main/entertainment/test-one/test-one.component';
 import { TestTwoComponent } from './main/entertainment/test-one/test-two/test-two.component';
-import { AddProductComponent } from './main/catalog/moderating/products/add-product/add-product.component';
-import { ProductTemplateComponent } from './main/catalog/moderating/products/product-template/product-template.component';
-import { ImageGalleryComponent } from './main/catalog/moderating/products/product-template/image-gallery/image-gallery.component';
+import { AddProductComponent } from './main/catalog/catalog-moderating/products/add-product/add-product.component';
+import { ProductTemplateComponent } from './main/catalog/catalog-moderating/products/product-template/product-template.component';
+import { ImageGalleryComponent } from './main/catalog/catalog-moderating/products/product-template/image-gallery/image-gallery.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
@@ -38,16 +38,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { AreYouSureDialogComponent } from './main/dialogs/are-you-sure-dialog/are-you-sure-dialog.component';
 import { InformationDialogComponent } from './main/dialogs/information-dialog/information-dialog.component';
-import { ProductCategoryInputComponent } from './main/catalog/moderating/products/product-template/product-category-input/product-category-input.component';
-import { ProductManufacturerInputComponent } from './main/catalog/moderating/products/product-template/product-manufacturer-input/product-manufacturer-input.component';
-import { AddManufacturerDialogComponent } from './main/catalog/moderating/products/dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component';
-import { EditProductRelatedEntitiesComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-related-entities.component';
-import { AddProductCategoryDialogComponent } from './main/catalog/moderating/products/dialogs/add-product-category-dialog/add-product-category-dialog.component';
+import { ProductCategoryInputComponent } from './main/catalog/catalog-moderating/products/product-template/product-category-input/product-category-input.component';
+import { ProductManufacturerInputComponent } from './main/catalog/catalog-moderating/products/product-template/product-manufacturer-input/product-manufacturer-input.component';
+import { AddManufacturerDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component';
+import { EditProductRelatedEntitiesComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-product-related-entities.component';
+import { AddProductCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-product-category-dialog/add-product-category-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
-import { EditMainCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-main-category/edit-main-category.component';
-import { EditSubCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-sub-category/edit-sub-category.component';
-import { EditProductCategoryComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-product-category/edit-product-category.component';
-import { EditManufacturerComponent } from './main/catalog/moderating/products/edit-product-related-entities/edit-manufacturer/edit-manufacturer.component';
+import { EditMainCategoryComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-main-category/edit-main-category.component';
+import { EditSubCategoryComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-sub-category/edit-sub-category.component';
+import { EditProductCategoryComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-product-category/edit-product-category.component';
+import { EditManufacturerComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-manufacturer/edit-manufacturer.component';
+import { AddMainCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-main-category-dialog/add-main-category-dialog.component';
+import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import { EditManufacturerComponent } from './main/catalog/moderating/products/ed
     EditMainCategoryComponent,
     EditSubCategoryComponent,
     EditProductCategoryComponent,
-    EditManufacturerComponent
+    EditManufacturerComponent,
+    AddMainCategoryDialogComponent,
+    AddSubCategoryDialogComponent
   ],
   imports: [
     BrowserModule,

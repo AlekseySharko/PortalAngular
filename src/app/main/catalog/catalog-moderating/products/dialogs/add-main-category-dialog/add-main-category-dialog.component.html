@@ -1,0 +1,28 @@
+<form mat-dialog-content #f="ngForm">
+  <h4 class="header-text">
+    <span *ngIf="data.edit; else addHeader">Edit main category </span>
+    <ng-template #addHeader>Add main category </ng-template>
+    <button class="btn btn-dark edit-btn" [routerLink]="['/catalog/moderating/product-related/edit']" [mat-dialog-close]="true">Edit</button>
+  </h4>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="mainCategoryName" name="main-category-name" required>
+    <mat-error >
+      Name is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Image link</mat-label>
+    <input matInput [(ngModel)]="mainCategoryImage" name="main-category-image-link" required [pattern]="generalValidator.imagePatternRegex">
+    <mat-error >
+      Image link is required
+    </mat-error>
+  </mat-form-field>
+</form>
+<div mat-dialog-actions>
+  <button class="btn btn-dark" [disabled]="f.invalid" (click)="onAddClick()">
+    <span *ngIf="data.edit; else addButton">Save</span>
+    <ng-template #addButton>Add</ng-template>
+  </button>
+  <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+</div>
