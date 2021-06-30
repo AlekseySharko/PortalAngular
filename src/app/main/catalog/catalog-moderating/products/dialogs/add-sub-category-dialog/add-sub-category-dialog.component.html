@@ -1,1 +1,26 @@
-<p>add-sub-category-dialog works!</p>
+<form mat-dialog-content #f="ngForm">
+  <h4 class="header-text">
+    <span *ngIf="data.edit; else addHeader">Edit product category </span>
+    <ng-template #addHeader><span>Add product category </span></ng-template>
+    <button class="btn btn-dark edit-btn" [routerLink]="['/catalog/moderating/product-related/edit']" [mat-dialog-close]="true">Edit</button>
+  </h4>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Main categories</mat-label>
+    <mat-select matNativeControl [(ngModel)]="selectedMainCategory" name="main-category" required>
+      <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Subcategory name</mat-label>
+    <input matInput [(ngModel)]="subCategoryName" name="sub-category-name" required>
+  </mat-form-field>
+</form>
+<div mat-dialog-actions>
+  <button class="btn btn-dark" [disabled]="f.invalid" (click)="onAddClick()">
+    <span *ngIf="data.edit; else addBtn">Save</span>
+    <ng-template #addBtn><span>Add</span></ng-template>
+  </button>
+  <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+</div>

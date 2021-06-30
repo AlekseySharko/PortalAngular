@@ -6,4 +6,5 @@ export class CatalogSubCategory implements NameAware {
   public catalogSubCategoryId: number = 0;
   public name: string = '';
   public productCategories: ProductCategory[] = [];
+  public parentMainCategory: CatalogMainCategory | null = new CatalogMainCategory;
 }

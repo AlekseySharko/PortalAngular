@@ -3,9 +3,15 @@
     <div class="header-text-wrapper">
       <span class="header-text">CATALOG SUB CATEGORY</span>
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-dark">Add</button>
-        <button type="button" class="btn btn-dark">Edit</button>
-        <button type="button" class="btn btn-delete">Remove</button>
+        <button type="button" class="btn btn-dark" (click)="onAdd()">
+          Add
+        </button>
+        <button type="button" class="btn btn-dark" [disabled]="selectedSubCategory.catalogSubCategoryId < 1" (click)="onEdit()">
+          Edit
+        </button>
+        <button type="button" class="btn btn-delete" [disabled]="selectedSubCategory.catalogSubCategoryId < 1" (click)="onDelete()">
+          Remove
+        </button>
       </div>
     </div>
   </div>
@@ -13,13 +19,13 @@
   <div class="input-container">
     <mat-form-field appearance="fill">
       <mat-label>Main category</mat-label>
-      <mat-select matNativeControl (selectionChange)="setUpOnMainCategoryChange($event)">
+      <mat-select matNativeControl [(value)]="selectedMainCategory" ngModel name="main-category" required>
         <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
     <mat-label>Sub category</mat-label>
-    <mat-select matNativeControl [disabled]="selectedMainCategory.subCategories.length < 1">
+    <mat-select matNativeControl [disabled]="selectedMainCategory.subCategories.length < 1" [(value)]="selectedSubCategory">
       <mat-option *ngFor="let subCategory of selectedMainCategory.subCategories" [value]="subCategory">{{subCategory.name}}</mat-option>
     </mat-select>
     </mat-form-field>
