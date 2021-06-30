@@ -19,7 +19,11 @@
   <div class="input-container">
     <mat-form-field appearance="fill">
       <mat-label>Main category</mat-label>
-      <mat-select matNativeControl [(value)]="selectedMainCategory" ngModel name="main-category" required>
+      <mat-select
+        matNativeControl
+        [(value)]="selectedMainCategory"
+        ngModel name="main-category"
+        required (selectionChange)="resetSelectedSubCategory()">
         <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
       </mat-select>
     </mat-form-field>

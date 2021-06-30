@@ -7,15 +7,15 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Main categories</mat-label>
-    <mat-select matNativeControl [(value)]="selectedMainCategory" ngModel name="main-category" #mainCategorySel="ngModel" required>
+    <mat-select matNativeControl [(ngModel)]="selectedMainCategory" name="main-category" #mainCategorySel="ngModel" required>
       <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Subcategories</mat-label>
-    <mat-select matNativeControl required [(value)]="selectedSubCategory" ngModel name="sub-category" [disabled]="!!mainCategorySel.invalid">
-      <mat-option *ngFor="let subcategory of selectedMainCategory.subCategories" [value]="subcategory.name">{{subcategory.name}}</mat-option>
+    <mat-select matNativeControl required [(ngModel)]="selectedSubCategory" name="sub-category" [disabled]="!!mainCategorySel.invalid">
+      <mat-option *ngFor="let subcategory of selectedMainCategory.subCategories" [value]="subcategory">{{subcategory.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -25,7 +25,7 @@
   </mat-form-field>
 </form>
 <div mat-dialog-actions>
-  <button class="btn btn-dark" [disabled]="f.invalid" [mat-dialog-close]="true">
+  <button class="btn btn-dark" [disabled]="f.invalid" (click)="onAddClick()">
     <span *ngIf="data.edit; else addBtn">Save</span>
     <ng-template #addBtn><span>Add</span></ng-template>
   </button>

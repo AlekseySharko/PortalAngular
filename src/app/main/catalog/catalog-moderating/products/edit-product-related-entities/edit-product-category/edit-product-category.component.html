@@ -3,9 +3,13 @@
     <div class="header-text-wrapper">
       <span class="header-text">PRODUCT CATEGORY</span>
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-dark">Add</button>
-        <button type="button" class="btn btn-dark">Edit</button>
-        <button type="button" class="btn btn-delete">Remove</button>
+        <button type="button" class="btn btn-dark" (click)="onAdd()">Add</button>
+        <button type="button" class="btn btn-dark" [disabled]="selectedProductCategory.productCategoryId < 1" (click)="onEdit()">
+          Edit
+        </button>
+        <button type="button" class="btn btn-delete" [disabled]="selectedProductCategory.productCategoryId < 1" (click)="onDelete()">
+          Remove
+        </button>
       </div>
     </div>
   </div>
@@ -29,7 +33,7 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Product category</mat-label>
-    <mat-select matNativeControl [disabled]="selectedSubCategory.productCategories.length < 1">
+    <mat-select matNativeControl [disabled]="selectedSubCategory.productCategories.length < 1" [(value)]="selectedProductCategory">
       <mat-option *ngFor="let prodCategory of selectedSubCategory.productCategories" [value]="prodCategory">
         {{prodCategory.name}}
       </mat-option>

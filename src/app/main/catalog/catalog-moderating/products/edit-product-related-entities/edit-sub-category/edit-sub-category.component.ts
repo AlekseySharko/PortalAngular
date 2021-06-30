@@ -81,6 +81,10 @@ export class EditSubCategoryComponent implements OnInit {
     });
   }
 
+  resetSelectedSubCategory() {
+    this.selectedSubCategory = new CatalogSubCategory();
+  }
+
   onAfterChange(result: boolean) {
     if(!result) return;
     this.updatedEvent.updatedProductRelatedDataEmitter.emit();
