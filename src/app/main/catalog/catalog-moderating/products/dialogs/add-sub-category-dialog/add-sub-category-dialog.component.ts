@@ -1,12 +1,11 @@
-import {Component, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
 import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-subcategory";
-import {Manufacturer} from "../../../../classes/products/manufacturer";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
 import {Subscription} from "rxjs";
 import {SubCategoryStandardProviderService} from "../../../../services/sub-category-standard-provider.service";
+import {DialogMessageHandlerService} from "../../../../../../services/dialog-message-handler.service";
 
 export interface AddSubCategoryData {
   edit: boolean,
@@ -27,11 +26,11 @@ export class AddSubCategoryDialogComponent implements OnInit, OnDestroy {
   constructor(public dialogRef: MatDialogRef<AddSubCategoryDialogComponent>,
               private mainCategoriesProvider: MainCategoryStandardProviderService,
               private subCategoriesProvider: SubCategoryStandardProviderService,
-              private dialog: MatDialog,
+              private dialogErrorHandler: DialogMessageHandlerService,
               @Inject(MAT_DIALOG_DATA) public data: AddSubCategoryData) {}
 
   ngOnInit(): void {
-    this.mainCategoriesProvider.getAllCategoriesIncludingSubs().subscribe(
+    this.mainCategoriesProvider.getAllCategories(true).subscribe(
       mainCategories => {
         this.mainCategories = mainCategories;
         this.subCategoryName = this.data.subCategory.name;
@@ -61,10 +60,7 @@ export class AddSubCategoryDialogComponent implements OnInit, OnDestroy {
     this.httpSubscription = methodToSend().subscribe(
       () => {},
       error => {
-        this.dialog.open(InformationDialogComponent, {
-          width: '24rem',
-          data: {bold: error.error}
-        });
+        this.dialogErrorHandler.onHttpError(error);
         this.dialogRef.close(true);
       },
       () => {

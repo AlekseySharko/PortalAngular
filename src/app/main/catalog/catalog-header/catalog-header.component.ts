@@ -16,6 +16,7 @@ export class CatalogHeaderComponent implements OnInit, OnDestroy {
   mainCategories: CatalogMainCategory[] = [];
   selectedMainCategory: CatalogMainCategory = new CatalogMainCategory();
   selectedSubcategories: CatalogSubCategory[] = [];
+  selectedSubcategory: CatalogSubCategory = new CatalogSubCategory();
   subsHidden: boolean = true;
   categoriesSubscription: Subscription = new Subscription();
 
@@ -27,7 +28,7 @@ export class CatalogHeaderComponent implements OnInit, OnDestroy {
     this.categoriesSubscription = this.route.data.subscribe(data => {
       this.mainCategories = data['mainCategoriesWithSubsAndProds'];
     });
-    this.updatedEvent.updatedProductRelatedDataEmitter.subscribe(() => {
+    this.updatedEvent.updatedProductRelatedDataSubject.subscribe(() => {
       this.refresh();
     })
   }
@@ -40,10 +41,11 @@ export class CatalogHeaderComponent implements OnInit, OnDestroy {
     this.subsHidden = false;
     this.selectedMainCategory = mainCategory;
     this.selectedSubcategories = mainCategory.subCategories;
+    this.selectedSubcategory = new CatalogSubCategory();
   }
 
   refresh() {
-    this.mainCategoryProvider.getAllCategoriesIncludingSubsAndProductCategories().subscribe(data => {
+    this.mainCategoryProvider.getAllCategories(true, true).subscribe(data => {
       this.mainCategories = data;
     })
   }

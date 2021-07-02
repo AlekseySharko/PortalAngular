@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Manufacturer} from "../../../../classes/products/manufacturer";
 import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -8,8 +8,7 @@ import {Observable, Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
 import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
 import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
-import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
+import {EditHelperService} from "../edit-helper.service";
 
 @Component({
   selector: 'app-edit-manufacturer',
@@ -24,6 +23,7 @@ export class EditManufacturerComponent implements OnInit, OnDestroy {
   manufacturersSubscription: Subscription = new Subscription();
 
   constructor(private dialog: MatDialog,
+              private editHelper: EditHelperService,
               private generalValidator: GeneralDataValidatorService,
               private manufacturerProvider: ProductManufacturerStandardProviderService) {}
 
@@ -59,29 +59,11 @@ export class EditManufacturerComponent implements OnInit, OnDestroy {
   onDelete() {
     let manufacturer = this.getSelectedManufacturer();
     if(!manufacturer) return;
-    const dialogRef = this.dialog.open(AreYouSureDialogComponent, {
-      width: '24rem',
-      data: {
-        question: `Are you sure you want to remove ${manufacturer.name}?`,
-        okButton: "Remove",
-        cancelButton: "Cancel"
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
-      this.manufacturerProvider.deleteManufacturer(manufacturer?.manufacturerId ?? 0).subscribe(
-        () => {},
-        error => {
-          const dialogRef = this.dialog.open(InformationDialogComponent, {
-            width: '24rem',
-            data: {bold: error.error}
-          });
-          this.onAfterChange(true);
-        },
-        () => {
-          this.onAfterChange(true);
-        });
-    });
+
+    let deleteFunc = this.manufacturerProvider.deleteManufacturer.bind(
+      this.manufacturerProvider, manufacturer?.manufacturerId ?? 0);
+    let onEnd = this.onAfterChange.bind(this, true);
+    this.editHelper.deleteAskingPermission(deleteFunc, manufacturer.name, onEnd, onEnd);
   }
 
   onAfterChange(result: boolean) {

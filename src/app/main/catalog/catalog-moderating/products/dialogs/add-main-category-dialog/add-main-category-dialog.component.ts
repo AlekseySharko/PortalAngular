@@ -3,8 +3,8 @@ import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-ma
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
 import {Subscription} from "rxjs";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
 import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
+import {DialogMessageHandlerService} from "../../../../../../services/dialog-message-handler.service";
 
 export interface AddMainCategoryData {
   edit: boolean;
@@ -21,7 +21,7 @@ export class AddMainCategoryDialogComponent implements OnInit, OnDestroy {
   httpSubscription: Subscription = new Subscription();
 
   constructor(private dialogRef: MatDialogRef<AddMainCategoryDialogComponent>,
-              private dialog: MatDialog,
+              private dialogErrorHandler: DialogMessageHandlerService,
               private mainCategoryProvider: MainCategoryStandardProviderService,
               public generalValidator: GeneralDataValidatorService,
               @Inject(MAT_DIALOG_DATA) public data: AddMainCategoryData) {}
@@ -47,10 +47,7 @@ export class AddMainCategoryDialogComponent implements OnInit, OnDestroy {
     this.httpSubscription = methodToSend(mainCategoryToSend).subscribe(
       () => {},
       error => {
-        this.dialog.open(InformationDialogComponent, {
-          width: '24rem',
-          data: {bold: error.error}
-        });
+        this.dialogErrorHandler.onHttpError(error);
         this.dialogRef.close(true);
       },
       () => {

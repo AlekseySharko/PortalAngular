@@ -1,0 +1,16 @@
+.related-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+mat-form-field {
+  width: 100%;
+}
+.product-category-container {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  height: 4.1rem;
+}

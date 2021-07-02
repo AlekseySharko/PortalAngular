@@ -1,11 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
 import {AddMainCategoryDialogComponent} from "../../dialogs/add-main-category-dialog/add-main-category-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
-import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
 import {UpdatedEventProviderService} from "../../../../services/updated-event-provider.service";
+import {EditHelperService} from "../edit-helper.service";
 
 @Component({
   selector: 'app-edit-main-category',
@@ -15,6 +14,7 @@ export class EditMainCategoryComponent implements OnInit {
   @Input() mainCategories: CatalogMainCategory[] = [];
   selectedMainCategory: CatalogMainCategory = new CatalogMainCategory();
   constructor(private dialog: MatDialog,
+              private editHelper: EditHelperService,
               private mainCategoryProvider: MainCategoryStandardProviderService,
               private updatedEvent: UpdatedEventProviderService ) {}
 
@@ -46,30 +46,10 @@ export class EditMainCategoryComponent implements OnInit {
   onDelete() {
     if(!this.selectedMainCategory) return;
 
-    const dialogRef = this.dialog.open(AreYouSureDialogComponent, {
-      width: '24rem',
-      data: {
-        question: `Are you sure you want to remove ${this.selectedMainCategory.name}?`,
-        okButton: "Remove",
-        cancelButton: "Cancel"
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
-      this.mainCategoryProvider.deleteCategory(this.selectedMainCategory?.catalogMainCategoryId ?? 0).subscribe(
-        () => {},
-        error => {
-          const dialogRef = this.dialog.open(InformationDialogComponent, {
-            width: '24rem',
-            data: {bold: error.error}
-          });
-          this.onAfterChange(true);
-        },
-        () => {
-          this.onAfterChange(true);
-        });
-    });
+    let deleteFunc = this.mainCategoryProvider.deleteCategory.bind(
+      this.mainCategoryProvider, this.selectedMainCategory?.catalogMainCategoryId ?? 0);
+    let onEnd = this.onAfterChange.bind(this, true);
+    this.editHelper.deleteAskingPermission(deleteFunc, this.selectedMainCategory.name, onEnd, onEnd);
   }
 
   canEditOrDelete() {
@@ -78,7 +58,7 @@ export class EditMainCategoryComponent implements OnInit {
 
   onAfterChange(result: boolean) {
     if(!result) return;
-    this.updatedEvent.updatedProductRelatedDataEmitter.emit();
+    this.updatedEvent.updatedProductRelatedDataSubject.next();
     this.selectedMainCategory = new CatalogMainCategory();
   }
 }

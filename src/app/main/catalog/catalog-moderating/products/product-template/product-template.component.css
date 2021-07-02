@@ -26,21 +26,8 @@
   display: flex;
   flex-direction: column;
 }
-.input-container, :host ::ng-deep.input-container {
-  padding: 0.4rem;
-}
-.input-container > label, :host ::ng-deep.input-container > label {
-  padding: 0.25rem;
-}
 .product-gallery {
   width: 54%;
-}
-.product-main-info > .form-floating {
-  padding: 0.3125rem;
-}
-.product-name {
-  font-weight: 600;
-  margin-bottom: 2rem;
 }
 textarea {
   min-height: 9rem;
@@ -50,6 +37,14 @@ textarea {
   font-weight: 600;
   padding-bottom: 2rem;
 }
+:host ::ng-deep mat-form-field {
+  width: 100%;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+:host ::ng-deep label, :host ::ng-deep span {
+  height: 100%;
+}
 :host ::ng-deep.datalist {
   display: flex;
   justify-content: space-between;
@@ -57,27 +52,9 @@ textarea {
 :host ::ng-deep.datalist-button {
   margin-left: 5%;
 }
-input.ng-invalid.ng-dirty,
-textarea.ng-invalid.ng-dirty,
-:host ::ng-deep input.ng-invalid.ng-dirty {
-  background-color: rgba(255, 23, 0, 0.1);
-  transition: all 0.3s ease;
-}
-span, :host ::ng-deep span {
-  transition: all 0.3s ease;
-}
-input, textarea, :host ::ng-deep input {
-  transition: all 0.3s ease;
-}
 .btn-dark:disabled {
   background-color: #cfcfcf;
   border-color: #cfcfcf;
-}
-.validation-message, :host ::ng-deep.validation-message {
-  font-weight: 500;
-  font-size: 1rem;
-  color: red;
-  transition: all 0.3s ease;
 }
 @media(max-width: 54.625rem) {
   .product-form {

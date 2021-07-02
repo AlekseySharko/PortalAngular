@@ -1,15 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductCategory} from "../../../../classes/catalog-header/product-category";
-import {Observable, Subscription} from "rxjs";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
-import {map, startWith} from "rxjs/operators";
-import {Filter} from "../../../../classes/helpers/filter";
-import {ActivatedRoute} from "@angular/router";
-import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
 import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
 import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-subcategory";
+import {MatSelectChange} from "@angular/material/select";
+import {FormControl, FormGroup} from "@angular/forms";
+import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
+import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
 
 @Component({
   selector: 'app-product-category-input',
@@ -19,56 +17,74 @@ import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-sub
 export class ProductCategoryInputComponent implements OnInit {
   @Input() parentFormGroup!: FormGroup;
   productCategoryFormControl!: FormControl;
-  productCategories: ProductCategory[] = [];
-  productCategoriesSubscription: Subscription = new Subscription();
-  filteredProductCategoryNames!: Observable<string[]>;
+  mainCategories: CatalogMainCategory[] = [];
+  selectedMainCategory: CatalogMainCategory = new CatalogMainCategory();
+  selectedSubCategory: CatalogSubCategory = new CatalogSubCategory();
 
-  constructor(private generalValidation: GeneralDataValidatorService, private route: ActivatedRoute,
-              private dialog: MatDialog) {
-  }
+  constructor(private mainCategoryProvider: MainCategoryStandardProviderService,
+              private dialog: MatDialog,
+              private generalValidator: GeneralDataValidatorService) {}
 
   ngOnInit(): void {
-      this.productCategoriesSubscription = this.route.data.subscribe(data => {
-        this.productCategories = data['productCategories'];
-        this.setUpFromControl();
-      });
-  }
-
-  setUpFromControl() {
-    this.productCategoryFormControl = new FormControl(null, [
-      this.generalValidation.getEmptyOrWhiteSpaceValidator(),
-      this.generalValidation.getInCollectionNameValidator(this.productCategories,'NoSuchCategory')
-    ]);
-    this.parentFormGroup.addControl('product-category', this.productCategoryFormControl);
-    this.setUpAutocomplete();
-  }
-
-  setUpAutocomplete() {
-    this.filteredProductCategoryNames = this.productCategoryFormControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(data => Filter.nameFilter(this.productCategories, data))
-      ) ?? new Observable<string[]>();
+    this.getMainCategories();
+    this.setUpFormControl();
   }
 
   onAddProductCategory() {
-    let inputProductCategory = new ProductCategory();
-    inputProductCategory.name = this.productCategoryFormControl?.value;
+    let productCategoryToAdd = new ProductCategory();
+    productCategoryToAdd.parentSubCategory = this.selectedSubCategory;
+    productCategoryToAdd.parentSubCategory.parentMainCategory = this.selectedMainCategory;
     const dialogRef = this.dialog.open(AddProductCategoryDialogComponent, {
       width: '24rem',
-      data: {
-        edit: false,
-        productCategory: inputProductCategory,
-        mainCategory: new CatalogMainCategory(),
-        subCategory: new CatalogSubCategory()}
+      data: {edit: false, productCategory: productCategoryToAdd}
     });
+
     dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
+      this.onAfterChange(result);
     });
   }
 
-  checkValidation(controlPath:string) {
-    let control = this.parentFormGroup.get(controlPath);
-    return control?.valid || !control?.dirty;
+  onAfterChange(result: boolean) {
+    if(!result) return;
+    this.getMainCategories();
+    this.selectedMainCategory = new CatalogMainCategory();
+    this.selectedSubCategory = new CatalogSubCategory();
+    this.resetProductCategory();
+  }
+
+  onMainCategoryChange(event: MatSelectChange) {
+    if(this.selectedMainCategory == event.value) return;
+    this.selectedMainCategory = event.value;
+    this.selectedSubCategory = new CatalogSubCategory();
+    this.resetProductCategory();
+  }
+
+  onSubCategoryChange(event: MatSelectChange) {
+    if(this.selectedSubCategory == event.value) return;
+    this.selectedSubCategory = event.value;
+    this.resetProductCategory(this.selectedSubCategory.productCategories?.length < 1);
+  }
+
+  resetProductCategory(disable: boolean = true) {
+    this.productCategoryFormControl.setValue(new ProductCategory());
+    if(disable) {
+      this.productCategoryFormControl.disable();
+    } else {
+      this.productCategoryFormControl.enable();
+    }
+  }
+
+  setUpFormControl() {
+    this.productCategoryFormControl = new FormControl(null, [
+      this.generalValidator.getIdValidator('productCategoryId', 'NoSuchProductCategory')
+    ]);
+    this.productCategoryFormControl.disable();
+    this.parentFormGroup.addControl('product-category',this.productCategoryFormControl);
+  }
+
+  getMainCategories() {
+    this.mainCategoryProvider.getAllCategories(true, true).subscribe(data => {
+      this.mainCategories = data;
+    })
   }
 }

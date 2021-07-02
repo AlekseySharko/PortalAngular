@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiOriginService} from "../../../services/api-origin.service";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {ProductCategory} from "../classes/catalog-header/product-category";
 
 @Injectable({
@@ -14,7 +14,11 @@ export class ProductCategoryStandardProviderService {
     return this.http.get<ProductCategory[]>(this.api.apiOrigin + "/api/catalog/product-categories");
   }
   postCategory(productCategory: ProductCategory, subCategoryId: number) {
-    return this.http.post(this.api.apiOrigin + "/api/catalog/product-categories?subCategoryId=" + subCategoryId ,productCategory);
+    return this.http.post(this.api.apiOrigin + "/api/catalog/product-categories",
+      productCategory,
+      {
+        params: new HttpParams().set("subCategoryId", subCategoryId)
+      });
   }
   putCategory(productCategory: ProductCategory) {
     return this.http.put(this.api.apiOrigin + "/api/catalog/product-categories",productCategory);

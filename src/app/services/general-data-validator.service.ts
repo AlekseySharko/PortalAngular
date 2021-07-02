@@ -27,4 +27,13 @@ export class GeneralDataValidatorService {
       return { EmptyOrWhitespace: true }
     }
   }
+
+  getIdValidator(idPropertyName: string, error:string) {
+    return function(control: AbstractControl) {
+      if(control?.value?.[`${idPropertyName}`] > 0) {
+        return null;
+      }
+      return { [error]: true };
+    }
+  }
 }

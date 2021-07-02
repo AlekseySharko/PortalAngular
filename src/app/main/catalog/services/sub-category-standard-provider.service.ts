@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {CatalogSubCategory} from "../classes/catalog-header/catalog-subcategory";
 import {ApiOriginService} from "../../../services/api-origin.service";
 
@@ -8,13 +8,12 @@ import {ApiOriginService} from "../../../services/api-origin.service";
 })
 export class SubCategoryStandardProviderService {
   constructor(private api: ApiOriginService, private http: HttpClient) { }
-  getSubCategories(mainCategoryId: number) {
-    return this.http.get<CatalogSubCategory[]>(
-      this.api.apiOrigin + "/api/catalog/sub-categories/?mainCategoryId=" + mainCategoryId);
-  }
+
   postSubCategory(subCategory: CatalogSubCategory, mainCategoryId: number) {
     return this.http.post(
-      this.api.apiOrigin + "/api/catalog/sub-categories/?mainCategoryId=" + mainCategoryId, subCategory);
+      this.api.apiOrigin + "/api/catalog/sub-categories", subCategory, {
+        params: new HttpParams().set('mainCategoryId', mainCategoryId)
+      });
   }
   putSubCategory(subCategory: CatalogSubCategory) {
     return this.http.put(

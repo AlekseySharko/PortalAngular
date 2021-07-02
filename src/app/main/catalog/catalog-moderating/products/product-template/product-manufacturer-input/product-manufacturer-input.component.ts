@@ -1,65 +1,105 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {Observable, Subscription} from "rxjs";
 import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
-import {ActivatedRoute} from "@angular/router";
 import {map, startWith} from "rxjs/operators";
 import {Filter} from "../../../../classes/helpers/filter";
 import {Manufacturer} from "../../../../classes/products/manufacturer";
 import {MatDialog} from "@angular/material/dialog";
 import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
+import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
 
 @Component({
   selector: 'app-product-manufacturer-input',
   templateUrl: './product-manufacturer-input.component.html',
   styleUrls: ['./product-manufacturer-input.component.css']
 })
-export class ProductManufacturerInputComponent implements OnInit {
+export class ProductManufacturerInputComponent implements OnInit, OnDestroy {
   @Input() parentFormGroup!: FormGroup;
-  productManufacturerFormControl!: FormControl;
-  productManufacturers: Manufacturer[] = [];
-  productManufacturerSubscription: Subscription = new Subscription();
-  filteredProductManufacturerNames!: Observable<string[]>;
+  manufacturers: Manufacturer[] = [];
+  filteredManufacturerNames!: Observable<string[]>
+  manufacturerNameFormControl: FormControl = new FormControl(null);
+  manufacturerFormControl: FormControl = new FormControl(null);
+  manufacturersSubscription: Subscription = new Subscription();
 
-  constructor(private generalValidation: GeneralDataValidatorService,
-              private route: ActivatedRoute,
-              private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,
+              private generalValidator: GeneralDataValidatorService,
+              private manufacturerProvider: ProductManufacturerStandardProviderService) {}
 
-  ngOnInit()  {
-    this.productManufacturerSubscription = this.route.data.subscribe(data => {
-      this.productManufacturers = data['productManufacturers'];
-      this.productManufacturerFormControl = new FormControl(null, [
-        this.generalValidation.getEmptyOrWhiteSpaceValidator(),
-        this.generalValidation.getInCollectionNameValidator(this.productManufacturers,'NoSuchManufacturer')
-      ]);
-      this.parentFormGroup.addControl('manufacturer', this.productManufacturerFormControl);
-      this.setUpAutocomplete();
-    });
+  ngOnInit(){
+    this.manufacturersSubscription = this.manufacturerProvider.getAllManufacturers().subscribe(data => {
+      this.manufacturers = data;
+      this.setUpFormGroup();
+    })
+  }
+
+  setUpFormGroup() {
+    this.setUpNameValidators();
+    this.setUpManufacturerValidators();
+    this.setUpAutocomplete();
+    this.setUpNameManufactureCorrespondence();
+    this.parentFormGroup.addControl('manufacturer-name', this.manufacturerNameFormControl);
+    this.parentFormGroup.addControl('manufacturer', this.manufacturerFormControl);
+  }
+
+  setUpNameValidators() {
+    this.manufacturerNameFormControl.clearValidators();
+    this.manufacturerNameFormControl.setValidators([
+      this.generalValidator.getEmptyOrWhiteSpaceValidator,
+      this.generalValidator.getInCollectionNameValidator(this.manufacturers, 'NoSuchManufacturer')
+    ]);
+  }
+
+  setUpManufacturerValidators() {
+    this.manufacturerFormControl.setValidators([
+      (control: AbstractControl) => {
+        if(this.manufacturerNameFormControl.value === this.manufacturerFormControl.value?.name) {
+          return null;
+        }
+        return { "manufacturerError": true };
+      }
+    ]);
+  }
+
+  setUpAutocomplete() {
+    this.filteredManufacturerNames = this.manufacturerNameFormControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(data => Filter.nameFilter(this.manufacturers, data))
+      ) ?? new Observable<string[]>();
+  }
+
+  setUpNameManufactureCorrespondence() {
+    this.manufacturerNameFormControl.valueChanges.subscribe( data => {
+      this.manufacturerFormControl.setValue(this.manufacturers.find(m => m.name === data));
+    })
   }
 
   onAddManufacturer() {
     let inputManufacturer = new Manufacturer();
-    inputManufacturer.name = this.productManufacturerFormControl?.value;
+    inputManufacturer.name = this.manufacturerNameFormControl?.value;
     const dialogRef = this.dialog.open(AddManufacturerDialogComponent, {
       width: '24rem',
       data: {edit: false, manufacturer: inputManufacturer}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
+      this.onAfterChange(result);
     });
   }
 
-  setUpAutocomplete() {
-    this.filteredProductManufacturerNames = this.productManufacturerFormControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(data => Filter.nameFilter(this.productManufacturers, data))
-      ) ?? new Observable<string[]>();
+  onAfterChange(result: boolean) {
+    if(result) {
+      this.manufacturersSubscription = this.manufacturerProvider.getAllManufacturers().subscribe(data => {
+        this.manufacturers = data;
+        this.manufacturerNameFormControl.reset();
+        this.setUpNameValidators();
+        this.setUpAutocomplete();
+      });
+    }
   }
 
-  checkValidation(controlPath:string) {
-    let control = this.parentFormGroup.get(controlPath);
-    return control?.valid || !control?.touched;
+  ngOnDestroy() {
+    this.manufacturersSubscription.unsubscribe();
   }
 }

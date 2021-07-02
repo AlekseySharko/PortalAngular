@@ -11,5 +11,5 @@ export class Product implements NameAware {
   popularity: number = 0;
   images: ProductImage[] = [];
   manufacturer!: Manufacturer;
-  productCategory!: ProductCategory;
+  productCategory!: ProductCategory | null;
 }

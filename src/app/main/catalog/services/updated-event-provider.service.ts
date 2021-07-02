@@ -1,8 +1,9 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpdatedEventProviderService {
-  public updatedProductRelatedDataEmitter: EventEmitter<any> = new EventEmitter<any>();
+  public updatedProductRelatedDataSubject: Subject<any> = new Subject<any>();
 }

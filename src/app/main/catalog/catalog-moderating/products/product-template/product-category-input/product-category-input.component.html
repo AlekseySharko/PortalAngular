@@ -1,13 +1,34 @@
-<div class="input-container" [formGroup]="parentFormGroup">
-  <label for="product-category">Product category</label>
-  <span [hidden]="checkValidation('product-category')" class="validation-message">doesn't exist</span>
-  <div class="datalist">
-    <input class="form-control datalist-input" [matAutocomplete]="productCategory" formControlName="product-category" id="product-category">
-    <mat-autocomplete #productCategory="matAutocomplete">
-      <mat-option *ngFor="let category of filteredProductCategoryNames | async" [value]="category">
-        {{category}}
+<form class="related-form" [formGroup]="parentFormGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>Main category</mat-label>
+    <mat-select matNativeControl (selectionChange)="onMainCategoryChange($event)">
+      <mat-option *ngFor="let mainCategory of mainCategories" [value]="mainCategory">{{mainCategory.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Sub category</mat-label>
+    <mat-select
+      matNativeControl
+      [disabled]="selectedMainCategory.subCategories.length < 1"
+      (selectionChange)="onSubCategoryChange($event)">
+      <mat-option *ngFor="let subCategory of selectedMainCategory.subCategories" [value]="subCategory">
+        {{subCategory.name}}
       </mat-option>
-    </mat-autocomplete>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="product-category-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Product category</mat-label>
+    <mat-select
+      matNativeControl
+      [formControl]="productCategoryFormControl">
+      <mat-option *ngFor="let prodCategory of selectedSubCategory.productCategories" [value]="prodCategory">
+        {{prodCategory.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
     <button class="btn btn-secondary datalist-button" (click)="onAddProductCategory()">Add</button>
   </div>
-</div>
+</form>

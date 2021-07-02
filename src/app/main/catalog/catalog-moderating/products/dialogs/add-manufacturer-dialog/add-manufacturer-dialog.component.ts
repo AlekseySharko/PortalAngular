@@ -1,9 +1,9 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Manufacturer} from "../../../../classes/products/manufacturer";
 import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
 import {Subscription} from "rxjs";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
+import {DialogMessageHandlerService} from "../../../../../../services/dialog-message-handler.service";
 
 export interface AddManufacturerData {
   edit: boolean;
@@ -21,7 +21,7 @@ export class AddManufacturerDialogComponent implements OnInit, OnDestroy {
 
   constructor(private dialogRef: MatDialogRef<AddManufacturerDialogComponent>,
               private manufacturerProvider: ProductManufacturerStandardProviderService,
-              private dialog: MatDialog,
+              private dialogErrorHandler: DialogMessageHandlerService,
               @Inject(MAT_DIALOG_DATA) public data: AddManufacturerData) {}
 
   ngOnInit(): void {
@@ -45,10 +45,7 @@ export class AddManufacturerDialogComponent implements OnInit, OnDestroy {
     this.httpSubscription = methodToSend(manufacturerToSend).subscribe(
       () => {},
       error => {
-        this.dialog.open(InformationDialogComponent, {
-          width: '24rem',
-          data: {bold: error.error}
-        });
+        this.dialogErrorHandler.onHttpError(error);
         this.dialogRef.close(true);
       },
       () => {

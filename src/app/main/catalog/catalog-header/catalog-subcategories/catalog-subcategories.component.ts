@@ -8,7 +8,7 @@ import {CatalogSubCategory} from "../../classes/catalog-header/catalog-subcatego
 })
 export class CatalogSubcategoriesComponent implements OnInit {
   @Input() subcategories:CatalogSubCategory[] = [];
-  selectedSubCategory: CatalogSubCategory = new CatalogSubCategory();
+  @Input() selectedSubCategory: CatalogSubCategory = new CatalogSubCategory();
 
   ngOnInit(): void {
   }

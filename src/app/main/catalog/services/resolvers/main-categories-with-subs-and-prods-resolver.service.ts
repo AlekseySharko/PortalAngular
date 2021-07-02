@@ -11,6 +11,6 @@ export class MainCategoriesWithSubsAndProdsResolverService {
 
   constructor(private mainCategoryProvider: MainCategoryStandardProviderService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CatalogMainCategory[]> | Promise<CatalogMainCategory[]> | CatalogMainCategory[] {
-    return this.mainCategoryProvider.getAllCategoriesIncludingSubsAndProductCategories();
+    return this.mainCategoryProvider.getAllCategories(true, true);
   }
 }

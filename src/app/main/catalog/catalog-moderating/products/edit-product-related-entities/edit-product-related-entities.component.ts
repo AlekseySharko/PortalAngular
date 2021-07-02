@@ -30,7 +30,7 @@ export class EditProductRelatedEntitiesComponent implements OnInit, OnDestroy {
     this.manufacturersSubscription = this.route.data.subscribe(data => {
       this.manufacturers = data['productManufacturers'];
     });
-    this.updatedEvent.updatedProductRelatedDataEmitter.subscribe(() => {
+    this.updatedEvent.updatedProductRelatedDataSubject.subscribe(() => {
       this.refreshCategories();
     })
   }
@@ -41,7 +41,7 @@ export class EditProductRelatedEntitiesComponent implements OnInit, OnDestroy {
   }
 
   refreshCategories() {
-    this.mainCategoriesSubscription = this.mainCategoryProvider.getAllCategoriesIncludingSubsAndProductCategories()
+    this.mainCategoriesSubscription = this.mainCategoryProvider.getAllCategories(true, true)
       .subscribe(data => {
         this.mainCategoriesWithEverything = data;
       });

@@ -6,9 +6,8 @@ import {ProductCategory} from "../../../../classes/catalog-header/product-catego
 import {MatDialog} from "@angular/material/dialog";
 import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
 import {UpdatedEventProviderService} from "../../../../services/updated-event-provider.service";
-import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
 import {ProductCategoryStandardProviderService} from "../../../../services/product-category-standard-provider.service";
+import {EditHelperService} from "../edit-helper.service";
 
 @Component({
   selector: 'app-edit-product-category',
@@ -23,6 +22,7 @@ export class EditProductCategoryComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private updatedEvent: UpdatedEventProviderService,
+              private editHelper: EditHelperService,
               private productCategoryProvider: ProductCategoryStandardProviderService) {}
 
   ngOnInit(): void {
@@ -59,30 +59,10 @@ export class EditProductCategoryComponent implements OnInit {
   onDelete() {
     if (!this.selectedProductCategory) return;
 
-    const dialogRef = this.dialog.open(AreYouSureDialogComponent, {
-      width: '24rem',
-      data: {
-        question: `Are you sure you want to remove ${this.selectedProductCategory.name}?`,
-        okButton: "Remove",
-        cancelButton: "Cancel"
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
-      this.productCategoryProvider.deleteCategory(this.selectedProductCategory?.productCategoryId ?? 0).subscribe(
-        () => {},
-        error => {
-          const dialogRef = this.dialog.open(InformationDialogComponent, {
-            width: '24rem',
-            data: {bold: error.error}
-          });
-          this.onAfterChange(true);
-        },
-        () => {
-          this.onAfterChange(true);
-        });
-    });
+    let deleteFunc = this.productCategoryProvider.deleteCategory.bind(
+      this.productCategoryProvider, this.selectedProductCategory?.productCategoryId ?? 0);
+    let onEnd = this.onAfterChange.bind(this, true);
+    this.editHelper.deleteAskingPermission(deleteFunc, this.selectedProductCategory.name, onEnd, onEnd);
   }
 
   onMainCategoryChange(event: MatSelectChange) {
@@ -102,7 +82,7 @@ export class EditProductCategoryComponent implements OnInit {
 
   onAfterChange(result: boolean) {
     if(!result) return;
-    this.updatedEvent.updatedProductRelatedDataEmitter.emit();
+    this.updatedEvent.updatedProductRelatedDataSubject.next();
     this.selectedMainCategory = new CatalogMainCategory();
     this.selectedSubCategory = new CatalogSubCategory();
     this.selectedProductCategory = new ProductCategory();
