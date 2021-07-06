@@ -12,6 +12,7 @@ import {ProductCategoriesResolverService} from "./main/catalog/services/resolver
 import {ProductManufacturerResolverService} from "./main/catalog/services/resolvers/product-manufacturer-resolver.service";
 import {EditProductRelatedEntitiesComponent} from "./main/catalog/catalog-moderating/products/edit-product-related-entities/edit-product-related-entities.component";
 import {MainCategoriesWithSubsAndProdsResolverService} from "./main/catalog/services/resolvers/main-categories-with-subs-and-prods-resolver.service";
+import {AuthenticationComponent} from "./authentication/authentication.component";
 
 const catalogRoutes: Routes = [
   { path:'', component:CatalogHomeComponent, resolve: { mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService } },
@@ -35,6 +36,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent, children: catalogRoutes },
   { path: 'entertainment', component: EntertainmentComponent },
+  { path: 'log-in', component: AuthenticationComponent , data: { 'log-in': true }},
+  { path: 'sign-up', component: AuthenticationComponent , data: { 'log-in': false }},
   { path: '**', component: PageNotFoundComponent },
 ];
 

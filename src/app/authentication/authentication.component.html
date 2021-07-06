@@ -1,0 +1,27 @@
+<div class="login-box-wrapper">
+  <div class="login-box">
+    <h2 *ngIf="isLogin; else signUpHeader">Log-in</h2>
+    <ng-template #signUpHeader><h2>Sign-up</h2></ng-template>
+    <form class="my-dark-theme kids-theme">
+      <mat-form-field appearance="outline">
+        <mat-label for="username">User name</mat-label>
+        <input matInput type="text" name="username" id="username" [(ngModel)]="username" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" *ngIf="!isLogin">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="email" name="email" id="email" required [(ngModel)]="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label for="password">Password</mat-label>
+        <input matInput type="password" id="password" name="password" [(ngModel)]="password" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" *ngIf="!isLogin">
+        <mat-label for="email">Repeat password</mat-label>
+        <input matInput type="password" name="repeat-password" id="repeat-password" id required [(ngModel)]="email" required>
+      </mat-form-field>
+      <button class="btn btn-light submit-btn" (click)="onSubmitClick()">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.login-box-wrapper {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-box {
+  max-width: 33rem;
+  width: 100%;
+  padding: 2rem 3rem;
+  margin: 0rem 1rem;
+  background: rgba(0,0,0,0.75);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box h2 {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.submit-btn {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #240b36;
+  height: 3rem;
+  width: 7rem;
+  align-self: center;
+}
+@media(max-width: 31.25rem) {
+  .login-box {
+    padding: 2rem 5%;
+  }
+}

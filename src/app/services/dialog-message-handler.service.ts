@@ -12,7 +12,7 @@ export class DialogMessageHandlerService {
     let errorMessage = this.findErrorMessage(error);
     this.dialog.open(InformationDialogComponent, {
       width: '24rem',
-      data: {bold: errorMessage}
+      data: {bold: errorMessage.trim()}
     });
   }
 

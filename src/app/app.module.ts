@@ -50,6 +50,8 @@ import { EditProductCategoryComponent } from './main/catalog/catalog-moderating/
 import { EditManufacturerComponent } from './main/catalog/catalog-moderating/products/edit-product-related-entities/edit-manufacturer/edit-manufacturer.component';
 import { AddMainCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-main-category-dialog/add-main-category-dialog.component';
 import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import {MatButton, MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -91,7 +93,8 @@ import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating
     EditProductCategoryComponent,
     EditManufacturerComponent,
     AddMainCategoryDialogComponent,
-    AddSubCategoryDialogComponent
+    AddSubCategoryDialogComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +107,8 @@ import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [ApiOriginService, RandomProductPictureProviderService],
   bootstrap: [AppComponent]
