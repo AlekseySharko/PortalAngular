@@ -6,7 +6,7 @@ import {map, startWith} from "rxjs/operators";
 import {Filter} from "../../../../classes/helpers/filter";
 import {Observable, Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
-import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
+import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
 import {EditHelperService} from "../edit-helper.service";
 

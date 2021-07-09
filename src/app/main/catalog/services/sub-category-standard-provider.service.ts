@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {CatalogSubCategory} from "../classes/catalog-header/catalog-subcategory";
-import {ApiOriginService} from "../../../services/api-origin.service";
+import {ApiOriginService} from "../../../core/services/api-origin.service";
 
 @Injectable({
   providedIn: 'root'

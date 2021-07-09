@@ -3,8 +3,8 @@ import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-ma
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
 import {Subscription} from "rxjs";
-import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
-import {DialogMessageHandlerService} from "../../../../../../services/dialog-message-handler.service";
+import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
+import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
 
 export interface AddMainCategoryData {
   edit: boolean;

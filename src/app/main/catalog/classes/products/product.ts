@@ -1,7 +1,7 @@
 import {ProductImage} from "./product-image";
 import {Manufacturer} from "./manufacturer";
 import {ProductCategory} from "../catalog-header/product-category";
-import {NameAware} from "../../../../services/name-aware";
+import {NameAware} from "../../../../core/services/name-aware";
 
 export class Product implements NameAware {
   productId: number = 0;

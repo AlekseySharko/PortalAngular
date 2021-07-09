@@ -36,4 +36,16 @@ export class GeneralDataValidatorService {
       return { [error]: true };
     }
   }
+
+  getSameValueValidator(otherControl: AbstractControl, error: string, triggerOnEmpty: boolean = false) {
+    return function(control: AbstractControl) {
+      if(!triggerOnEmpty && !control?.value) {
+        return null;
+      }
+      if(control?.value == otherControl?.value) {
+        return null;
+      }
+      return { [error]: true };
+    }
+  }
 }

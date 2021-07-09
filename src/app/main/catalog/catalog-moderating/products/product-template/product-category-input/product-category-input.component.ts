@@ -7,7 +7,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
-import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
+import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 
 @Component({
   selector: 'app-product-category-input',

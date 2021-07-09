@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApiOriginService} from "../../../services/api-origin.service";
+import {ApiOriginService} from "../../../core/services/api-origin.service";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Product} from "../classes/products/product";
 

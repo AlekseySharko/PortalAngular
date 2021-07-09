@@ -2,7 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angula
 import {Product} from "../../../classes/products/product";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {GeneralDataValidatorService} from "../../../../../services/general-data-validator.service";
+import {GeneralDataValidatorService} from "../../../../../core/services/general-data-validator.service";
 
 @Component({
   selector: 'app-product-template',

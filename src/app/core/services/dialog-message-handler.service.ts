@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {InformationDialogComponent} from "../main/dialogs/information-dialog/information-dialog.component";
+import {InformationDialogComponent} from "../../main/dialogs/information-dialog/information-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({

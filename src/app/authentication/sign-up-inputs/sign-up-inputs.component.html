@@ -1,0 +1,26 @@
+<form class="auth-input-container" [formGroup]="signUpForm">
+  <mat-form-field appearance="fill">
+    <mat-label for="username">User name</mat-label>
+    <input matInput type="text" formControlName="username" name="username" id="username">
+    <mat-error>Requires 5-30 characters, no spaces or quotes</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="email">Email</mat-label>
+    <input matInput type="email" formControlName="email" name="email" id="email">
+    <mat-error>Email is not valid</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="password">Password</mat-label>
+    <input matInput type="password" formControlName="password" id="password" name="password">
+    <mat-error>Has to contain A-Z, a-z, 0-9 and a symbol</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="email">Repeat password</mat-label>
+    <input matInput type="password" formControlName="repeat-password" name="repeat-password" id="repeat-password">
+    <mat-error>Passwords are not the same</mat-error>
+  </mat-form-field>
+  <button class="my-btn submit-btn" [disabled]="signUpForm.invalid || isLoading" (click)="onSubmitClick()">
+    Submit
+  </button>
+  <app-full-screen-loader *ngIf="isLoading"></app-full-screen-loader>
+</form>

@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { WeatherComponent } from './header/weather/weather.component';
-import { NavListToggleDirective } from './directives/nav-list-toggle.directive';
+import { NavListToggleDirective } from './core/directives/nav-list-toggle.directive';
 import { SvgImageComponent } from './header/svg-image/svg-image.component';
 import { RightColumnComponent } from './header/right-column/right-column.component';
 import { UserBarComponent } from './header/right-column/user-bar/user-bar.component';
@@ -21,7 +21,7 @@ import { EntertainmentComponent } from './main/entertainment/entertainment.compo
 import { AppRoutingModule } from "./app-routing.module";
 import { MainCategoryComponent } from './main/catalog/catalog-header/main-category/main-category.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ApiOriginService} from "./services/api-origin.service";
+import {ApiOriginService} from "./core/services/api-origin.service";
 import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/product-categories/product-categories.component';
 import {RandomProductPictureProviderService} from "./main/catalog/services/random-product-picture-provider.service";
 import { TestOneComponent } from './main/entertainment/test-one/test-one.component';
@@ -52,6 +52,10 @@ import { AddMainCategoryDialogComponent } from './main/catalog/catalog-moderatin
 import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import {MatButton, MatButtonModule} from "@angular/material/button";
+import { LogInInputsComponent } from './authentication/log-in-inputs/log-in-inputs.component';
+import { SignUpInputsComponent } from './authentication/sign-up-inputs/sign-up-inputs.component';
+import { LoaderComponent } from './core/common-components/loader/loader.component';
+import { FullScreenLoaderComponent } from './core/common-components/loader/full-screen-loader/full-screen-loader.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import {MatButton, MatButtonModule} from "@angular/material/button";
     EditManufacturerComponent,
     AddMainCategoryDialogComponent,
     AddSubCategoryDialogComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    LogInInputsComponent,
+    SignUpInputsComponent,
+    LoaderComponent,
+    FullScreenLoaderComponent
   ],
   imports: [
     BrowserModule,

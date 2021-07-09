@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {Observable, Subscription} from "rxjs";
-import {GeneralDataValidatorService} from "../../../../../../services/general-data-validator.service";
+import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 import {map, startWith} from "rxjs/operators";
 import {Filter} from "../../../../classes/helpers/filter";
 import {Manufacturer} from "../../../../classes/products/manufacturer";
