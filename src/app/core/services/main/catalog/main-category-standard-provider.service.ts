@@ -3,12 +3,18 @@ import {MainCategoryProvider} from "../../../classes/main/catalog/catalog-header
 import {CatalogMainCategory} from "../../../classes/main/catalog/catalog-header/catalog-main-category";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {ApiOriginService} from "../../api-origin.service";
+import {AuthenticationProviderService} from "../../authentication/authentication-provider.service";
+import {exhaustMap, take} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainCategoryStandardProviderService implements MainCategoryProvider{
-  constructor(private api: ApiOriginService, private http: HttpClient) { }
+  constructor(private api: ApiOriginService,
+              private http: HttpClient,
+              private auth: AuthenticationProviderService
+  ) { }
+
   getAllCategories(includeSubcategories: boolean = false, includeProductCategories: boolean = false) {
     let params = new HttpParams();
     if(includeSubcategories) {

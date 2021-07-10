@@ -8,7 +8,6 @@ import { WeatherComponent } from './header/weather/weather.component';
 import { NavListToggleDirective } from './core/directives/nav-list-toggle.directive';
 import { SvgImageComponent } from './header/svg-image/svg-image.component';
 import { RightColumnComponent } from './header/right-column/right-column.component';
-import { UserBarComponent } from './header/right-column/user-bar/user-bar.component';
 import { UnknownUserBarComponent } from './header/right-column/user-bar/unknown-user-bar/unknown-user-bar.component';
 import { CatalogComponent } from './main/catalog/catalog.component';
 import { HomeComponent } from './main/home/home.component';
@@ -20,7 +19,7 @@ import { CatalogSubcategoriesComponent } from './main/catalog/catalog-header/cat
 import { EntertainmentComponent } from './main/entertainment/entertainment.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { MainCategoryComponent } from './main/catalog/catalog-header/main-category/main-category.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApiOriginService} from "./core/services/api-origin.service";
 import { ProductCategoriesComponent } from './main/catalog/catalog-header/catalog-subcategories/product-categories/product-categories.component';
 import {RandomProductPictureProviderService} from "./core/services/main/catalog/random-product-picture-provider.service";
@@ -51,11 +50,16 @@ import { EditManufacturerComponent } from './main/catalog/catalog-moderating/pro
 import { AddMainCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-main-category-dialog/add-main-category-dialog.component';
 import { AddSubCategoryDialogComponent } from './main/catalog/catalog-moderating/products/dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import {MatButton, MatButtonModule} from "@angular/material/button";
+import { MatButtonModule} from "@angular/material/button";
 import { LogInInputsComponent } from './authentication/log-in-inputs/log-in-inputs.component';
 import { SignUpInputsComponent } from './authentication/sign-up-inputs/sign-up-inputs.component';
 import { LoadingSpinnerComponent } from './core/common-components/loading-spinner/loading-spinner.component';
 import { FullScreenLoadingSpinnerComponent } from './core/common-components/loading-spinner/full-screen-loading-spinner/full-screen-loading-spinner.component';
+import {UserBarComponent} from "./header/right-column/user-bar/user-bar.component";
+import { UserMenuComponent } from './header/right-column/user-bar/user-menu/user-menu.component';
+import {AuthInterceptorService} from "./core/services/authentication/auth-interceptor.service";
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -102,7 +106,10 @@ import { FullScreenLoadingSpinnerComponent } from './core/common-components/load
     LogInInputsComponent,
     SignUpInputsComponent,
     LoadingSpinnerComponent,
-    FullScreenLoadingSpinnerComponent
+    FullScreenLoadingSpinnerComponent,
+    UserBarComponent,
+    UserBarComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -116,9 +123,15 @@ import { FullScreenLoadingSpinnerComponent } from './core/common-components/load
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
-  providers: [ApiOriginService, RandomProductPictureProviderService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

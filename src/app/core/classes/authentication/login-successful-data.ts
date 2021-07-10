@@ -1,5 +1,5 @@
 export class LoginSuccessfulData {
   userName: string = '';
-  Token: string = '';
+  token: string = '';
   Image: string = '';
 }

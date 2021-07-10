@@ -1,0 +1,19 @@
+.user-menu-wrapper {
+  color: #edf0f1;
+}
+[mat-button] {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+::ng-deep.mat-menu-content:not(:empty) {
+  background-color: #131313;
+  min-width: 10rem;
+}
+span{
+  font-size: 0.9rem;
+  align-items: center;
+  width: 100%;
+}
+::ng-deep.logout{
+  color: #FDBFC8;
+}

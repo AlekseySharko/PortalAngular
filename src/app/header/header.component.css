@@ -62,7 +62,7 @@ a:focus {
 .right-header {
   order: 3;
 }
-@media(max-width: 29.9375rem) {
+@media(max-width: 31.5625rem) {
   .header-burger, .right-header {
     width: initial;
   }
@@ -70,7 +70,10 @@ a:focus {
 @media(max-width: 26.25rem){
   .user-unknown-bnt {
     padding: 0.3125rem 0.45rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+  .header-burger {
+    margin-right: 0.6rem;
   }
 }
 .header-nav-list > a {

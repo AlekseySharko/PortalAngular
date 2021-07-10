@@ -1,1 +1,2 @@
-<app-unknown-user-bar></app-unknown-user-bar>
+<app-unknown-user-bar *ngIf="!user; else userLoggedIn"></app-unknown-user-bar>
+<ng-template #userLoggedIn><app-user-menu [user]="user"></app-user-menu></ng-template>
