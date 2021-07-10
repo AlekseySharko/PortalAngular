@@ -22,5 +22,5 @@
   <button class="my-btn submit-btn" [disabled]="signUpForm.invalid || isLoading" (click)="onSubmitClick()">
     Submit
   </button>
-  <app-full-screen-loader *ngIf="isLoading"></app-full-screen-loader>
+  <app-full-screen-loading-spinner *ngIf="isLoading"></app-full-screen-loading-spinner>
 </form>

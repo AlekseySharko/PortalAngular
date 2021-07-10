@@ -32,6 +32,9 @@
   justify-content: space-between;
   align-items: center;
 }
+:host ::ng-deep.btn-group, :host ::ng-deep.btn{
+  position: relative;
+}
 :host ::ng-deep.input-with-buttons {
   display: flex;
   justify-content: stretch;

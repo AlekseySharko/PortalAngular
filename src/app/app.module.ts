@@ -54,8 +54,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import { LogInInputsComponent } from './authentication/log-in-inputs/log-in-inputs.component';
 import { SignUpInputsComponent } from './authentication/sign-up-inputs/sign-up-inputs.component';
-import { LoaderComponent } from './core/common-components/loader/loader.component';
-import { FullScreenLoaderComponent } from './core/common-components/loader/full-screen-loader/full-screen-loader.component';
+import { LoadingSpinnerComponent } from './core/common-components/loading-spinner/loading-spinner.component';
+import { FullScreenLoadingSpinnerComponent } from './core/common-components/loading-spinner/full-screen-loading-spinner/full-screen-loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -101,8 +101,8 @@ import { FullScreenLoaderComponent } from './core/common-components/loader/full-
     AuthenticationComponent,
     LogInInputsComponent,
     SignUpInputsComponent,
-    LoaderComponent,
-    FullScreenLoaderComponent
+    LoadingSpinnerComponent,
+    FullScreenLoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
