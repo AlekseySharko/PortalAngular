@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 
 @Component({
   selector: 'app-main-category',

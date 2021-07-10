@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthenticationProviderService} from "../services/authentication-provider.service";
+import {AuthenticationProviderService} from "../../core/services/authentication/authentication-provider.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {GeneralDataValidatorService} from "../../core/services/general-data-validator.service";
-import {AuthenticationData} from "../classes/authentication-data";
+import {AuthenticationData} from "../../core/classes/authentication/authentication-data";
 import {Subscription} from "rxjs";
 import {DialogMessageHandlerService} from "../../core/services/dialog-message-handler.service";
 import {Router} from "@angular/router";

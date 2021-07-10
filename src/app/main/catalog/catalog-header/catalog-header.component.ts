@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit} from '@angular/core';
-import {MainCategoryStandardProviderService} from "../services/main-category-standard-provider.service";
-import {CatalogMainCategory} from "../classes/catalog-header/catalog-main-category";
-import {CatalogSubCategory} from "../classes/catalog-header/catalog-subcategory";
+import {MainCategoryStandardProviderService} from "../../../core/services/main/catalog/main-category-standard-provider.service";
+import {CatalogMainCategory} from "../../../core/classes/main/catalog/catalog-header/catalog-main-category";
+import {CatalogSubCategory} from "../../../core/classes/main/catalog/catalog-header/catalog-subcategory";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import {UpdatedEventProviderService} from "../services/updated-event-provider.service";
+import {UpdatedEventProviderService} from "../../../core/services/main/catalog/updated-event-provider.service";
 
 @Component({
   selector: 'app-catalog-header',

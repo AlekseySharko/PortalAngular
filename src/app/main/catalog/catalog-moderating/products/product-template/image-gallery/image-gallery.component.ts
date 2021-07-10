@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductImage} from "../../../../classes/products/product-image";
+import {ProductImage} from "../../../../../../core/classes/main/catalog/products/product-image";
 import {MatDialog} from "@angular/material/dialog";
-import {SingleStringDialogComponent} from "../../../../../dialogs/single-string-dialog/single-string-dialog.component";
-import {InformationDialogComponent} from "../../../../../dialogs/information-dialog/information-dialog.component";
-import {AreYouSureDialogComponent} from "../../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {SingleStringDialogComponent} from "../../../../../../core/dialogs/single-string-dialog/single-string-dialog.component";
+import {InformationDialogComponent} from "../../../../../../core/dialogs/information-dialog/information-dialog.component";
+import {AreYouSureDialogComponent} from "../../../../../../core/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
 
 @Component({
   selector: 'app-image-gallery',
@@ -27,8 +28,8 @@ export class ImageGalleryComponent implements OnInit {
   }
 
   onInvalidUrl(index: number) {
-    const dialogRef = this.dialog.open(InformationDialogComponent, {
-      width: '23rem',
+    this.dialog.open(InformationDialogComponent, {
+      maxWidth: '24rem',
       data: {bold: this.images[index].address, regular: " invalid and is going to be removed"}
     });
     if(this.beforeEditImage) {
@@ -69,7 +70,7 @@ export class ImageGalleryComponent implements OnInit {
     if(this.selectedId === undefined) return;
     this.beforeEditImage = '';
     const dialogRef = this.dialog.open(AreYouSureDialogComponent, {
-      width: '24rem',
+      maxWidth: '24rem',
       data: {
         question: "Are you sure you want to delete selected image?",
         okButton: "Delete",

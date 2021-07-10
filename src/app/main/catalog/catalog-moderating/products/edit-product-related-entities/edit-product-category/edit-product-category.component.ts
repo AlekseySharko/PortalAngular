@@ -1,13 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 import {MatSelectChange} from "@angular/material/select";
-import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-subcategory";
-import {ProductCategory} from "../../../../classes/catalog-header/product-category";
+import {CatalogSubCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-subcategory";
+import {ProductCategory} from "../../../../../../core/classes/main/catalog/catalog-header/product-category";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
-import {UpdatedEventProviderService} from "../../../../services/updated-event-provider.service";
-import {ProductCategoryStandardProviderService} from "../../../../services/product-category-standard-provider.service";
-import {EditHelperService} from "../edit-helper.service";
+import {UpdatedEventProviderService} from "../../../../../../core/services/main/catalog/updated-event-provider.service";
+import {ProductCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/product-category-standard-provider.service";
+import {EditHelperService} from "../../../../../../core/services/main/catalog/products/edit-helper.service";
 
 @Component({
   selector: 'app-edit-product-category',

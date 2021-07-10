@@ -1,14 +1,14 @@
-<form class="auth-input-container">
+<form class="auth-input-container" #f="ngForm">
   <mat-form-field appearance="fill">
     <mat-label for="username">User name</mat-label>
-    <input matInput type="text" name="username" id="username" ngModel required>
+    <input matInput type="text" name="username" id="username" [(ngModel)]="username" required>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label for="password">Password</mat-label>
-    <input matInput type="password" id="password" name="password" ngModel required>
+    <input matInput type="password" id="password" name="password" [(ngModel)]="password" required>
   </mat-form-field>
-  <button class="my-btn submit-btn">
+  <button class="my-btn submit-btn" (click)="onSubmitClick()" [disabled]="f.invalid">
     Submit
   </button>
-  <app-full-screen-loader></app-full-screen-loader>
+  <app-full-screen-loader *ngIf="isLoading"></app-full-screen-loader>
 </form>

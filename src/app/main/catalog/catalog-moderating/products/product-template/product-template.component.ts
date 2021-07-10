@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
-import {Product} from "../../../classes/products/product";
+import {Product} from "../../../../../core/classes/main/catalog/products/product";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
 import {GeneralDataValidatorService} from "../../../../../core/services/general-data-validator.service";

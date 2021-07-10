@@ -1,7 +1,7 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Manufacturer} from "../../../../classes/products/manufacturer";
-import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
+import {Manufacturer} from "../../../../../../core/classes/main/catalog/products/manufacturer";
+import {ProductManufacturerStandardProviderService} from "../../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
 import {Subscription} from "rxjs";
 import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
 

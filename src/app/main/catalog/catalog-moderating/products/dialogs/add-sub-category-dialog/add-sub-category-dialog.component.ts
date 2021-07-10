@@ -1,10 +1,10 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
-import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-subcategory";
+import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
+import {CatalogSubCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-subcategory";
 import {Subscription} from "rxjs";
-import {SubCategoryStandardProviderService} from "../../../../services/sub-category-standard-provider.service";
+import {SubCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/sub-category-standard-provider.service";
 import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
 
 export interface AddSubCategoryData {

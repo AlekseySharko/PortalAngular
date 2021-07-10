@@ -1,7 +1,7 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
+import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
 import {Subscription} from "rxjs";
 import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";

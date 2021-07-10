@@ -3,11 +3,11 @@ import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {Observable, Subscription} from "rxjs";
 import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 import {map, startWith} from "rxjs/operators";
-import {Filter} from "../../../../classes/helpers/filter";
-import {Manufacturer} from "../../../../classes/products/manufacturer";
+import {Filter} from "../../../../../../core/classes/main/catalog/helpers/filter";
+import {Manufacturer} from "../../../../../../core/classes/main/catalog/products/manufacturer";
 import {MatDialog} from "@angular/material/dialog";
 import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
-import {ProductManufacturerStandardProviderService} from "../../../../services/product-manufacturer-standard-provider.service";
+import {ProductManufacturerStandardProviderService} from "../../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
 
 @Component({
   selector: 'app-product-manufacturer-input',

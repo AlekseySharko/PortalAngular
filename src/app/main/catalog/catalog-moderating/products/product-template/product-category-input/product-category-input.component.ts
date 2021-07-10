@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductCategory} from "../../../../classes/catalog-header/product-category";
-import {CatalogMainCategory} from "../../../../classes/catalog-header/catalog-main-category";
-import {CatalogSubCategory} from "../../../../classes/catalog-header/catalog-subcategory";
+import {ProductCategory} from "../../../../../../core/classes/main/catalog/catalog-header/product-category";
+import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
+import {CatalogSubCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-subcategory";
 import {MatSelectChange} from "@angular/material/select";
 import {FormControl, FormGroup} from "@angular/forms";
-import {MainCategoryStandardProviderService} from "../../../../services/main-category-standard-provider.service";
+import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
 import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";

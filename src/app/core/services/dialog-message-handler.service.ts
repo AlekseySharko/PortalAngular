@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {InformationDialogComponent} from "../../main/dialogs/information-dialog/information-dialog.component";
+import {InformationDialogComponent} from "../dialogs/information-dialog/information-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({
@@ -8,17 +8,20 @@ import {MatDialog} from "@angular/material/dialog";
 export class DialogMessageHandlerService {
   constructor(private dialog: MatDialog) {}
 
-  onHttpError(error: any) {
+  onHttpError(error: any, textNotCenter: boolean = false) {
     let errorMessage = this.findErrorMessage(error);
     this.dialog.open(InformationDialogComponent, {
-      width: '24rem',
-      data: {bold: errorMessage.trim()}
+      maxWidth: '24rem',
+      data: {
+        bold: errorMessage.trim(),
+        textNotCenter
+      }
     });
   }
 
   onHttpSuccess(message: string) {
     this.dialog.open(InformationDialogComponent, {
-      width: '24rem',
+      maxWidth: '24rem',
       data: {bold: message}
     });
   }

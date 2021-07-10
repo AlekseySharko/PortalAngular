@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Product} from "../../../classes/products/product";
-import {ProductStandardProviderService} from "../../../services/product-standard-provider.service";
+import {Product} from "../../../../../core/classes/main/catalog/products/product";
+import {ProductStandardProviderService} from "../../../../../core/services/main/catalog/product-standard-provider.service";
 import {Subscription} from "rxjs";
 import {DialogMessageHandlerService} from "../../../../../core/services/dialog-message-handler.service";
 

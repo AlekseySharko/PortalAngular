@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductCategory} from "../../../classes/catalog-header/product-category";
-import {RandomProductPictureProviderService} from "../../../services/random-product-picture-provider.service";
+import {ProductCategory} from "../../../../../core/classes/main/catalog/catalog-header/product-category";
+import {RandomProductPictureProviderService} from "../../../../../core/services/main/catalog/random-product-picture-provider.service";
 
 @Component({
   selector: 'app-product-categories',

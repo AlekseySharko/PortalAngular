@@ -6,12 +6,12 @@ import {CatalogComponent} from "./main/catalog/catalog.component";
 import {EntertainmentComponent} from "./main/entertainment/entertainment.component";
 import {PageNotFoundComponent} from "./main/page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
-import {MainCategoriesResolverService} from "./main/catalog/services/resolvers/main-categories-resolver.service";
+import {MainCategoriesResolverService} from "./core/services/main/catalog/resolvers/main-categories-resolver.service";
 import {AddProductComponent} from "./main/catalog/catalog-moderating/products/add-product/add-product.component";
-import {ProductCategoriesResolverService} from "./main/catalog/services/resolvers/product-categories-resolver.service";
-import {ProductManufacturerResolverService} from "./main/catalog/services/resolvers/product-manufacturer-resolver.service";
+import {ProductCategoriesResolverService} from "./core/services/main/catalog/resolvers/product-categories-resolver.service";
+import {ProductManufacturerResolverService} from "./core/services/main/catalog/resolvers/product-manufacturer-resolver.service";
 import {EditProductRelatedEntitiesComponent} from "./main/catalog/catalog-moderating/products/edit-product-related-entities/edit-product-related-entities.component";
-import {MainCategoriesWithSubsAndProdsResolverService} from "./main/catalog/services/resolvers/main-categories-with-subs-and-prods-resolver.service";
+import {MainCategoriesWithSubsAndProdsResolverService} from "./core/services/main/catalog/resolvers/main-categories-with-subs-and-prods-resolver.service";
 import {AuthenticationComponent} from "./authentication/authentication.component";
 
 const catalogRoutes: Routes = [
