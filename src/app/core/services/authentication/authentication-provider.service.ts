@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiOriginService} from "../api-origin.service";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {AuthenticationData} from "../../classes/authentication/authentication-data";
 import {LoginSuccessfulData} from "../../classes/authentication/login-successful-data";
 import { tap} from "rxjs/operators";
@@ -54,6 +54,11 @@ export class AuthenticationProviderService {
       clearTimeout(this.tokenExpirationTimer);
     }
     this.router.navigate(['/']);
+  }
+  checkRole(role: string) {
+    return this.http.get<boolean>(this.api.apiOrigin + "/api/auth/role", {
+      params: new HttpParams().set("role", role)
+    });
   }
 
 

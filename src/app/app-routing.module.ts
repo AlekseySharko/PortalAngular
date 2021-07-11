@@ -13,20 +13,28 @@ import {ProductManufacturerResolverService} from "./core/services/main/catalog/r
 import {EditProductRelatedEntitiesComponent} from "./main/catalog/catalog-moderating/products/edit-product-related-entities/edit-product-related-entities.component";
 import {MainCategoriesWithSubsAndProdsResolverService} from "./core/services/main/catalog/resolvers/main-categories-with-subs-and-prods-resolver.service";
 import {AuthenticationComponent} from "./authentication/authentication.component";
+import {NotAuthenticatedGuardService} from "./core/services/authentication/not-authenticated-guard.service";
+import {RoleGuardService} from "./core/services/authentication/role-guard.service";
 
 const catalogRoutes: Routes = [
   { path:'', component:CatalogHomeComponent, resolve: { mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService } },
   { path: 'moderating/product/add', component: AddProductComponent, resolve: {
       productCategories: ProductCategoriesResolverService,
       productManufacturers: ProductManufacturerResolverService
-    } },
+    },
+    canActivate: [RoleGuardService],
+    data: {role: 'Catalog Moderator'}
+  },
   { path: 'moderating/product-related/edit',
     component: EditProductRelatedEntitiesComponent,
     runGuardsAndResolvers: "always",
     resolve: {
       mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService,
       productManufacturers: ProductManufacturerResolverService
-    } },
+    },
+    canActivate: [RoleGuardService],
+    data: {role: 'Catalog Moderator'}
+  },
   { path:':category', component:CatalogProductsComponent, resolve: { mainCategories: MainCategoriesResolverService } },
 ];
 const entertainmentRoutes: Routes = [
@@ -36,8 +44,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent, children: catalogRoutes },
   { path: 'entertainment', component: EntertainmentComponent },
-  { path: 'log-in', component: AuthenticationComponent , data: { 'log-in': true }},
-  { path: 'sign-up', component: AuthenticationComponent , data: { 'log-in': false }},
+  { path: 'log-in', component: AuthenticationComponent , data: { 'log-in': true }, canActivate: [NotAuthenticatedGuardService]},
+  { path: 'sign-up', component: AuthenticationComponent , data: { 'log-in': false }, canActivate: [NotAuthenticatedGuardService]},
   { path: '**', component: PageNotFoundComponent },
 ];
 
