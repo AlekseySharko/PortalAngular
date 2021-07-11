@@ -16,25 +16,24 @@ import {AuthenticationComponent} from "./authentication/authentication.component
 import {NotAuthenticatedGuardService} from "./core/services/authentication/not-authenticated-guard.service";
 import {RoleGuardService} from "./core/services/authentication/role-guard.service";
 
-const catalogRoutes: Routes = [
-  { path:'', component:CatalogHomeComponent, resolve: { mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService } },
-  { path: 'moderating/product/add', component: AddProductComponent, resolve: {
+const catalogModeratingRoutes: Routes = [
+  { path: 'product/add', component: AddProductComponent, resolve: {
       productCategories: ProductCategoriesResolverService,
       productManufacturers: ProductManufacturerResolverService
-    },
-    canActivate: [RoleGuardService],
-    data: {role: 'Catalog Moderator'}
+    }
   },
-  { path: 'moderating/product-related/edit',
+  { path: 'product-related/edit',
     component: EditProductRelatedEntitiesComponent,
     runGuardsAndResolvers: "always",
     resolve: {
       mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService,
       productManufacturers: ProductManufacturerResolverService
-    },
-    canActivate: [RoleGuardService],
-    data: {role: 'Catalog Moderator'}
+    }
   },
+];
+const catalogRoutes: Routes = [
+  { path: '', component:CatalogHomeComponent, resolve: { mainCategoriesWithSubsAndProds: MainCategoriesWithSubsAndProdsResolverService } },
+  { path: 'moderating', children: catalogModeratingRoutes, canActivate: [RoleGuardService], data: {role: 'Catalog Moderator'}},
   { path:':category', component:CatalogProductsComponent, resolve: { mainCategories: MainCategoriesResolverService } },
 ];
 const entertainmentRoutes: Routes = [
