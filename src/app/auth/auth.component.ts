@@ -4,10 +4,10 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-authentication',
-  templateUrl: './authentication.component.html',
-  styleUrls: ['./authentication.component.css']
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css']
 })
-export class AuthenticationComponent implements OnInit {
+export class AuthComponent implements OnInit {
   isLogin = true;
   isLoading = false;
   constructor(private authenticationProvider: AuthenticationProviderService,

@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductImage} from "../../../../../../core/classes/main/catalog/products/product-image";
 import {MatDialog} from "@angular/material/dialog";
-import {SingleStringDialogComponent} from "../../../../../../core/dialogs/single-string-dialog/single-string-dialog.component";
-import {InformationDialogComponent} from "../../../../../../core/dialogs/information-dialog/information-dialog.component";
-import {AreYouSureDialogComponent} from "../../../../../../core/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
-import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
+import {SingleStringDialogComponent} from "../../../../../../shared/dialogs/single-string-dialog/single-string-dialog.component";
+import {InformationDialogComponent} from "../../../../../../shared/dialogs/information-dialog/information-dialog.component";
+import {AreYouSureDialogComponent} from "../../../../../../shared/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {DialogMessageHandlerService} from "../../../../../../shared/dialogs/dialog-message-handler.service";
 
 @Component({
   selector: 'app-image-gallery',

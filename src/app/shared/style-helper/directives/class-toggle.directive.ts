@@ -3,8 +3,10 @@ import {Directive, ElementRef, Renderer2, Input} from '@angular/core';
 @Directive({
   selector: '[classToggle]'
 })
-export class NavListToggleDirective {
+export class ClassToggleDirective {
+  constructor(private elementRef: ElementRef) { }
   private toggleStatus!:boolean;
+  @Input() toggleClass:string = "";
   @Input('classToggle') set toggleValue(value:boolean) {
     if(!this.toggleClass) return;
     if(this.toggleStatus == undefined) {
@@ -17,8 +19,6 @@ export class NavListToggleDirective {
       this.toggleStatus = value;
     }
   }
-  @Input() toggleClass:string = "";
-  constructor(private elementRef: ElementRef) { }
 
   toggle() {
     const hasClass = this.elementRef.nativeElement.classList.toggle(this.toggleClass);

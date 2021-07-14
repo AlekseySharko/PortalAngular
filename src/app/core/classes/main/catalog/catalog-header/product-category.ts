@@ -1,4 +1,4 @@
-import {NameAware} from "../../../../services/name-aware";
+import {NameAware} from "../../../name-aware";
 import {CatalogSubCategory} from "./catalog-subcategory";
 
 export class ProductCategory implements NameAware {

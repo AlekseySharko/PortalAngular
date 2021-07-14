@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {GeneralDataValidatorService} from "../../core/services/general-data-validator.service";
 import {AuthenticationData} from "../../core/classes/authentication/authentication-data";
 import {Subscription} from "rxjs";
-import {DialogMessageHandlerService} from "../../core/services/dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../shared/dialogs/dialog-message-handler.service";
 import {Router} from "@angular/router";
 
 @Component({

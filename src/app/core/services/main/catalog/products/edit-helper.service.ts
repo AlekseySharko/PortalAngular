@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {DialogMessageHandlerService} from "../../../dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../../../../shared/dialogs/dialog-message-handler.service";
 import {Observable} from "rxjs";
-import {AreYouSureDialogComponent} from "../../../../dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {AreYouSureDialogComponent} from "../../../../../shared/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({

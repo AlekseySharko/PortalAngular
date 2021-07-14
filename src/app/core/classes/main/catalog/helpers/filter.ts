@@ -1,4 +1,4 @@
-import {NameAware} from "../../../../services/name-aware";
+import {NameAware} from "../../../name-aware";
 
 export class Filter {
   static nameFilter(collection: NameAware[], namePart: string) {

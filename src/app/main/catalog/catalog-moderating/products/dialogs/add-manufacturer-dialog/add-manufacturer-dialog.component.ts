@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Manufacturer} from "../../../../../../core/classes/main/catalog/products/manufacturer";
 import {ProductManufacturerStandardProviderService} from "../../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
 import {Subscription} from "rxjs";
-import {DialogMessageHandlerService} from "../../../../../../core/services/dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../../../../../shared/dialogs/dialog-message-handler.service";
 
 export interface AddManufacturerData {
   edit: boolean;

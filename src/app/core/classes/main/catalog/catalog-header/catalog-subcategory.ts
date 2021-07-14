@@ -1,6 +1,6 @@
 import {ProductCategory} from "./product-category";
 import {CatalogMainCategory} from "./catalog-main-category";
-import {NameAware} from "../../../../services/name-aware";
+import {NameAware} from "../../../name-aware";
 
 export class CatalogSubCategory implements NameAware {
   public catalogSubCategoryId: number = 0;

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../../../core/classes/authentication/user";
 import {AuthenticationProviderService} from "../../../../core/services/authentication/authentication-provider.service";
-import {AreYouSureDialogComponent} from "../../../../core/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
+import {AreYouSureDialogComponent} from "../../../../shared/dialogs/are-you-sure-dialog/are-you-sure-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Component({

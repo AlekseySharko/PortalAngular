@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {NameAware} from "./name-aware";
+import {NameAware} from "../classes/name-aware";
 import {AbstractControl, FormControl} from "@angular/forms";
 
 @Injectable({
