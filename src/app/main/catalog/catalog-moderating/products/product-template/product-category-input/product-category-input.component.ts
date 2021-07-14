@@ -6,7 +6,7 @@ import {MatSelectChange} from "@angular/material/select";
 import {FormControl, FormGroup} from "@angular/forms";
 import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AddProductCategoryDialogComponent} from "../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
+import {AddProductCategoryDialogComponent} from "../../../dialogs/add-product-category-dialog/add-product-category-dialog.component";
 import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
 
 @Component({

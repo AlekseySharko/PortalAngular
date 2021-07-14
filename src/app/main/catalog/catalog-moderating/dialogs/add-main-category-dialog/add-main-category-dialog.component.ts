@@ -1,10 +1,10 @@
 import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
+import {MainCategoryStandardProviderService} from "../../../../../core/services/main/catalog/main-category-standard-provider.service";
 import {Subscription} from "rxjs";
-import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
-import {DialogMessageHandlerService} from "../../../../../../shared/dialogs/dialog-message-handler.service";
+import {GeneralDataValidatorService} from "../../../../../core/services/general-data-validator.service";
+import {DialogMessageHandlerService} from "../../../../../shared/dialogs/dialog-message-handler.service";
 
 export interface AddMainCategoryData {
   edit: boolean;

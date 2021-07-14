@@ -4,7 +4,7 @@ import {EntertainmentComponent} from "./main/entertainment/entertainment.compone
 import {PageNotFoundComponent} from "./main/page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
 import {AuthRoutingModule} from "./auth/auth-routing.module";
-import {MainRoutingModule} from "./main/main-routing.module";
+import {CatalogRoutingModule} from "./main/catalog/catalog-routing.module";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +15,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:  [
     AuthRoutingModule,
-    MainRoutingModule,
+    CatalogRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [

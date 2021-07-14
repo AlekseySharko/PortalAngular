@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CatalogMainCategory} from "../../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
+import {CatalogMainCategory} from "../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
 import {AddMainCategoryDialogComponent} from "../../dialogs/add-main-category-dialog/add-main-category-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {MainCategoryStandardProviderService} from "../../../../../../core/services/main/catalog/main-category-standard-provider.service";
-import {UpdatedEventProviderService} from "../../../../../../core/services/main/catalog/updated-event-provider.service";
-import {EditHelperService} from "../../../../../../core/services/main/catalog/products/edit-helper.service";
+import {MainCategoryStandardProviderService} from "../../../../../core/services/main/catalog/main-category-standard-provider.service";
+import {UpdatedEventProviderService} from "../../../../../core/services/main/catalog/updated-event-provider.service";
+import {EditHelperService} from "../../../../../core/services/main/catalog/products/edit-helper.service";
 
 @Component({
   selector: 'app-edit-main-category',

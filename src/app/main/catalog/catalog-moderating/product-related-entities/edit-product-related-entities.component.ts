@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable, Subscription} from "rxjs";
-import {CatalogMainCategory} from "../../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
-import {Manufacturer} from "../../../../../core/classes/main/catalog/products/manufacturer";
-import {ProductManufacturerResolverService} from "../../../../../core/services/main/catalog/resolvers/product-manufacturer-resolver.service";
-import {ProductManufacturerStandardProviderService} from "../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
-import {MainCategoryStandardProviderService} from "../../../../../core/services/main/catalog/main-category-standard-provider.service";
-import {UpdatedEventProviderService} from "../../../../../core/services/main/catalog/updated-event-provider.service";
+import {CatalogMainCategory} from "../../../../core/classes/main/catalog/catalog-header/catalog-main-category";
+import {Manufacturer} from "../../../../core/classes/main/catalog/products/manufacturer";
+import {ProductManufacturerResolverService} from "../../../../core/services/main/catalog/resolvers/product-manufacturer-resolver.service";
+import {ProductManufacturerStandardProviderService} from "../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
+import {MainCategoryStandardProviderService} from "../../../../core/services/main/catalog/main-category-standard-provider.service";
+import {UpdatedEventProviderService} from "../../../../core/services/main/catalog/updated-event-provider.service";
 
 @Component({
   selector: 'app-edit-product-related-entities',

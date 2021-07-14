@@ -6,7 +6,7 @@ import {map, startWith} from "rxjs/operators";
 import {Filter} from "../../../../../../core/classes/main/catalog/helpers/filter";
 import {Manufacturer} from "../../../../../../core/classes/main/catalog/products/manufacturer";
 import {MatDialog} from "@angular/material/dialog";
-import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
+import {AddManufacturerDialogComponent} from "../../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
 import {ProductManufacturerStandardProviderService} from "../../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
 
 @Component({

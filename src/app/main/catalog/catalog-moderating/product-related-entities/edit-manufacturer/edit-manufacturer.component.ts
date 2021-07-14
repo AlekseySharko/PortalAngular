@@ -1,14 +1,14 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Manufacturer} from "../../../../../../core/classes/main/catalog/products/manufacturer";
+import {Manufacturer} from "../../../../../core/classes/main/catalog/products/manufacturer";
 import {AddManufacturerDialogComponent} from "../../dialogs/add-manufacturer-dialog/add-manufacturer-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {map, startWith} from "rxjs/operators";
-import {Filter} from "../../../../../../core/classes/main/catalog/helpers/filter";
+import {Filter} from "../../../../../core/classes/main/catalog/helpers/filter";
 import {Observable, Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
-import {GeneralDataValidatorService} from "../../../../../../core/services/general-data-validator.service";
-import {ProductManufacturerStandardProviderService} from "../../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
-import {EditHelperService} from "../../../../../../core/services/main/catalog/products/edit-helper.service";
+import {GeneralDataValidatorService} from "../../../../../core/services/general-data-validator.service";
+import {ProductManufacturerStandardProviderService} from "../../../../../core/services/main/catalog/product-manufacturer-standard-provider.service";
+import {EditHelperService} from "../../../../../core/services/main/catalog/products/edit-helper.service";
 
 @Component({
   selector: 'app-edit-manufacturer',
