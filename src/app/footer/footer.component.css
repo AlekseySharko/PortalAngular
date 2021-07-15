@@ -67,7 +67,6 @@
     flex-direction: column;
   }
 }
-
 @media (max-width: 43rem) {
   .footer-link-wrapper {
     flex-direction: column;

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Product} from "../../../../../core/classes/main/catalog/products/product";
 import {ProductStandardProviderService} from "../../../../../core/services/main/catalog/product-standard-provider.service";
 import {Subscription} from "rxjs";
-import {DialogMessageHandlerService} from "../../../../../shared/dialogs/dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../../../../core/services/dialog-message-handler.service";
 
 @Component({
   selector: 'app-add-product',

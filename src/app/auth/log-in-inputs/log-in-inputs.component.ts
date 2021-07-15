@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationProviderService} from "../../core/services/authentication/authentication-provider.service";
 import {Subscription} from "rxjs";
-import {DialogMessageHandlerService} from "../../shared/dialogs/dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../core/services/dialog-message-handler.service";
 import {AuthenticationData} from "../../core/classes/authentication/authentication-data";
 import {Router} from "@angular/router";
 

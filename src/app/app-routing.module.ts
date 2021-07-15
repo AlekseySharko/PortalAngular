@@ -1,27 +1,24 @@
-import {RouterModule, Routes} from "@angular/router";
+import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./main/home/home.component";
 import {EntertainmentComponent} from "./main/entertainment/entertainment.component";
 import {PageNotFoundComponent} from "./main/page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
-import {AuthRoutingModule} from "./auth/auth-routing.module";
-import {CatalogRoutingModule} from "./main/catalog/catalog-routing.module";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'entertainment', component: EntertainmentComponent },
+  { path: 'catalog', loadChildren: () => import('./main/catalog/catalog.module').then(m => m.CatalogModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({
   imports:  [
-    AuthRoutingModule,
-    CatalogRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [
     RouterModule
   ]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

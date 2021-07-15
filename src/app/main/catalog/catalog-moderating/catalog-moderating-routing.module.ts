@@ -26,7 +26,7 @@ const catalogModeratingRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild([{
-        path: 'catalog/moderating',
+        path: '',
         children: catalogModeratingRoutes,
         canActivate: [RoleGuardService],
         data: {role: 'Catalog Moderator'}

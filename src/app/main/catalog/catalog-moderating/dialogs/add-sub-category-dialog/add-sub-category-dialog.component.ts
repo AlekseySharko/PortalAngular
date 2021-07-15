@@ -5,7 +5,7 @@ import {MainCategoryStandardProviderService} from "../../../../../core/services/
 import {CatalogSubCategory} from "../../../../../core/classes/main/catalog/catalog-header/catalog-subcategory";
 import {Subscription} from "rxjs";
 import {SubCategoryStandardProviderService} from "../../../../../core/services/main/catalog/sub-category-standard-provider.service";
-import {DialogMessageHandlerService} from "../../../../../shared/dialogs/dialog-message-handler.service";
+import {DialogMessageHandlerService} from "../../../../../core/services/dialog-message-handler.service";
 
 export interface AddSubCategoryData {
   edit: boolean,

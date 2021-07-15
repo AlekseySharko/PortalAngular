@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {AuthComponent} from "./auth.component";
 import {LogInInputsComponent} from "./log-in-inputs/log-in-inputs.component";
 import {SignUpInputsComponent} from "./sign-up-inputs/sign-up-inputs.component";
-import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
@@ -26,7 +25,6 @@ import {AuthRoutingModule} from "./auth-routing.module";
   imports: [
     CommonModule,
     AuthRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
